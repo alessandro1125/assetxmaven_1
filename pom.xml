@@ -13,7 +13,7 @@
             <id>project.local</id>
             <name>project</name>
             <!-- URL must contain ${project.basedir} -->
-            <url>file:${project.basedir}/repo/</url>
+            <url>file:${project.basedir}/repo</url>
         </repository>
     </repositories>
 
@@ -59,11 +59,13 @@
             <version>chargebee-1.0</version>
         </dependency>
 
+
         <dependency>
             <groupId>com.assetx</groupId>
             <artifactId>assetx-utils</artifactId>
             <version>1.0</version>
         </dependency>
+        
 
         <dependency>
             <groupId>com.google.api-client</groupId>

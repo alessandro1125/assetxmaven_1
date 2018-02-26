@@ -15,10 +15,11 @@
 
             Statement stmt = null;
             String query = "CREATE TABLE orders (channel VARCHAR(255));";
-            try {
-                stmt = connection.createStatement();
-                //stmt.executeQuery(query);
-                result = "Connection succesfuly done";
+            for(int i = 0; i<30; i++) {
+                try {
+                    stmt = connection.createStatement();
+                    //stmt.executeQuery(query); TODO execute query
+                    result = "Connection succesfuly done";
                 /*
                 while (rs.next()) {
                     String coffeeName = rs.getString("COF_NAME");
@@ -32,13 +33,15 @@
                 }
                 */
 
-            } catch (SQLException e ) {
-                e.printStackTrace();
-                result = e.toString();
-            } finally {
-                if (stmt != null) { stmt.close(); }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                } finally {
+                    if (stmt != null) {
+                        stmt.close();
+                    }
+                }
             }
-
         %>
 
         <%!
@@ -59,6 +62,6 @@
         %>
 
         Index jsp 2 <br>
-        <%= result%>
+        <%= result %>
     </body>
 </html>

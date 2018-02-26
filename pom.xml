@@ -65,7 +65,7 @@
             <artifactId>assetx-utils</artifactId>
             <version>1.0</version>
         </dependency>
-        
+
 
         <dependency>
             <groupId>com.google.api-client</groupId>

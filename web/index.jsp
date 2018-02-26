@@ -13,6 +13,6 @@
             HttpHelperConnection httpHelperConnection;
 
         %>
-        Index jsp
+        Index jsp 2
     </body>
 </html>

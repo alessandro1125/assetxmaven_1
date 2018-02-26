@@ -12,7 +12,8 @@
         <repository>
             <id>project.local</id>
             <name>project</name>
-            <url>file:${project.basedir}/repo</url>
+            <!-- URL must contain ${project.basedir} -->
+            <url>file:${project.basedir}/repo/</url>
         </repository>
     </repositories>
 

@@ -55,9 +55,11 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="250">
+              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <folding>
+                <marker date="1519663286042" expanded="true" signature="381:423" ph="CREATE TABLE... orders" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -403,12 +405,12 @@
       <option name="presentableId" value="Default" />
       <updated>1519657031084</updated>
       <workItem from="1519657034354" duration="1884000" />
-      <workItem from="1519659000977" duration="3351000" />
+      <workItem from="1519659000977" duration="4250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5235000" />
+    <option name="totallyTimeSpent" value="6134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
@@ -480,7 +482,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
+          <folding>
+            <marker date="1519663286042" expanded="true" signature="381:423" ph="CREATE TABLE... orders" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -515,9 +519,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="250">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <marker date="1519663286042" expanded="true" signature="381:423" ph="CREATE TABLE... orders" />
+          </folding>
         </state>
       </provider>
     </entry>

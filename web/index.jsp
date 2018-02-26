@@ -41,6 +41,9 @@
                         stmt.close();
                     }
                 }
+                %>
+                <%= result %><br>
+                <%
             }
         %>
 
@@ -62,6 +65,6 @@
         %>
 
         Index jsp 2 <br>
-        <%= result %>
+
     </body>
 </html>

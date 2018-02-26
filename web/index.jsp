@@ -9,7 +9,7 @@
     <body>
 
         <%
-            Connection connection = getConnection();
+
 
             String result = null;
 
@@ -17,6 +17,7 @@
             String query = "CREATE TABLE orders (channel VARCHAR(255));";
             for(int i = 0; i<30; i++) {
                 try {
+                    Connection connection = getConnection();
                     stmt = connection.createStatement();
                     //stmt.executeQuery(query); TODO execute query
                     result = "Connection succesfuly done";
@@ -32,7 +33,7 @@
                             "\t" + total);
                 }
                 */
-
+                    connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                     result = e.toString();

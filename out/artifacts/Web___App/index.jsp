@@ -1,9 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.Connection" %>
 <%@ page import="java.net.URISyntaxException" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.net.URI" %>
+<%@ page import="java.sql.*" %>
 <html>
     <head>
         <title>Title</title>
@@ -12,7 +10,32 @@
 
         <%
             Connection connection = getConnection();
-            String result = connection.getCatalog();
+
+
+            Statement stmt = null;
+            String query = "CREATE TABLE orders (channel VARCHAR(255));";
+            try {
+                stmt = connection.createStatement();
+                stmt.executeQuery(query);
+
+                /*
+                while (rs.next()) {
+                    String coffeeName = rs.getString("COF_NAME");
+                    int supplierID = rs.getInt("SUP_ID");
+                    float price = rs.getFloat("PRICE");
+                    int sales = rs.getInt("SALES");
+                    int total = rs.getInt("TOTAL");
+                    System.out.println(coffeeName + "\t" + supplierID +
+                            "\t" + price + "\t" + sales +
+                            "\t" + total);
+                }
+                */
+
+            } catch (SQLException e ) {
+                e.printStackTrace();
+            } finally {
+                if (stmt != null) { stmt.close(); }
+            }
 
         %>
 
@@ -20,6 +43,7 @@
 
 
             private static Connection getConnection() throws URISyntaxException, SQLException {
+
                 URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
                 String username = dbUri.getUserInfo().split(":")[0];
@@ -33,6 +57,5 @@
         %>
 
         Index jsp 2 <br>
-        <%= result%>
     </body>
 </html>

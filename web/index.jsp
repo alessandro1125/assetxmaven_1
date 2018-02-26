@@ -11,13 +11,14 @@
         <%
             Connection connection = getConnection();
 
+            String result = null;
 
             Statement stmt = null;
             String query = "CREATE TABLE orders (channel VARCHAR(255));";
             try {
                 stmt = connection.createStatement();
-                stmt.executeQuery(query);
-
+                //stmt.executeQuery(query);
+                result = "Connection succesfuly done";
                 /*
                 while (rs.next()) {
                     String coffeeName = rs.getString("COF_NAME");
@@ -33,6 +34,7 @@
 
             } catch (SQLException e ) {
                 e.printStackTrace();
+                result = e.toString();
             } finally {
                 if (stmt != null) { stmt.close(); }
             }
@@ -57,5 +59,6 @@
         %>
 
         Index jsp 2 <br>
+        <%= result%>
     </body>
 </html>

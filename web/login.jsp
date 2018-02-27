@@ -88,13 +88,11 @@
 
                     //addSql(connection , map, "users");
 
-                    String res = selectSql(connection, "attivo", "users");
-                    String stringa = res;
-                    %><p><%= res%><br></p><%
-
-                    /*for (String string : res){
-
-                    }*/
+                    String[] res = selectSql(connection, "attivo", "users");
+                    
+                    for (String string : res){
+                        %><p><%= string%><br></p><%
+                    }
 
                 break;
             }
@@ -113,9 +111,7 @@
              * @param table
              * @return
              */
-            private static String selectSql(Connection connection, String name, String table){
-
-                String resTmp = "";
+            private static String[] selectSql(Connection connection, String name, String table){
 
                 String result[];
                 ArrayList<String> recordsArr = new ArrayList();
@@ -128,9 +124,8 @@
 
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next()) {
-                        String lastName = rs.getString("email");
+                        String lastName = rs.getString(name);
                         recordsArr.add(lastName);
-                        resTmp = lastName;
                     }
                     if (recordsArr.size() == 0)
                         return null;
@@ -147,7 +142,7 @@
                     return null;
                 }
 
-                return resTmp;
+                return result;
             }
 
             /**

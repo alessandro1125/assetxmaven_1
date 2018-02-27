@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.net.URI" %>

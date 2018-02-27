@@ -2,12 +2,7 @@
 <%@ page import="java.net.URI" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="jdk.nashorn.internal.objects.NativeUint8Array" %>
-<%@ page import="org.eclipse.jdt.internal.compiler.ast.NullLiteral" %>
-<%@ page import="java.util.Collections" %>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="java.net.ConnectException" %>
-<<<<<<< HEAD
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html lang="it" dir="ltr">
@@ -18,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
     </head>
-    <body>
+    <body class="form-style-8">
 
         <%
             //Controllo l'action
@@ -88,7 +83,10 @@
                     map.put("devices_uid", "0");
 
                     //addSql(getConnection(), map, "users");
-                    selectSql(getConnection(), "attivo", "users");
+                    String[] res = selectSql(getConnection(), "attivo", "users");
+                    for (String stringa : res){
+                        %><p><%= stringa%><br></p><%
+                    }
 
             }
 

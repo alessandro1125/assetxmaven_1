@@ -28,7 +28,7 @@
                 Connection connection;
 
                 String query = "INSERT INTO users (email, password, nome, cognome, anno, mese, giorno, attivo, passkey, devices_uid)" +
-                        " VALUES ('admin@assetx.com', 'admin1125', 'admin.', 'admin', '0000', '00', '00', '00', 1, '0', '')";
+                        " VALUES ('admin@assetx.com', 'admin1125', 'admin', 'admin', '0000', '00', '00', 1, '0', '')";
 
                 try {
                     connection = getConnection();

@@ -55,7 +55,6 @@
                 Connection connection;
 
                 String query = "CREATE TABLE users (" +
-                                    "ID int NOT NULL," +
                                     "email VARCHAR(255)," +
                                     "password VARCHAR(255), " +
                                     "nome VARCHAR(255)," +
@@ -65,8 +64,7 @@
                                     "giorno VARCHAR(255)," +
                                     "attivo int," +
                                     "passkey VARCHAR(255)," +
-                                    "devices_uid VARCHAR(255)," +
-                                    "PRIMARY KEY (ID));";
+                                    "devices_uid VARCHAR(255));";
 
                 try {
                     connection = getConnection();

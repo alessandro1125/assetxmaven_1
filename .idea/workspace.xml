@@ -34,12 +34,12 @@
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
-              <caret line="28" column="47" lean-forward="false" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+              <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
               <folding>
-                <marker date="1519745508041" expanded="true" signature="691:1379" ph="CREATE TABLE... orders" />
-                <marker date="1519745508041" expanded="true" signature="691:1380" ph="CREATE TABLE... orders" />
-                <marker date="1519745508041" expanded="true" signature="2196:2230" ph="SELECT `emai... Users" />
-                <marker date="1519745508041" expanded="true" signature="3045:3072" ph="DELETE FROM `Users`... " />
+                <marker date="1519745603789" expanded="true" signature="691:1377" ph="CREATE TABLE... orders" />
+                <marker date="1519745603789" expanded="true" signature="691:1378" ph="CREATE TABLE... orders" />
+                <marker date="1519745603789" expanded="true" signature="2194:2228" ph="SELECT `emai... Users" />
+                <marker date="1519745603789" expanded="true" signature="3043:3070" ph="DELETE FROM `Users`... " />
               </folding>
             </state>
           </provider>
@@ -426,12 +426,12 @@
       <workItem from="1519680118293" duration="1617000" />
       <workItem from="1519721659462" duration="4550000" />
       <workItem from="1519736380959" duration="135000" />
-      <workItem from="1519736879265" duration="5775000" />
+      <workItem from="1519736879265" duration="5868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19251000" />
+    <option name="totallyTimeSpent" value="19344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
@@ -486,10 +486,10 @@
         <state relative-caret-position="273">
           <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding>
-            <marker date="1519745508041" expanded="true" signature="691:1379" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="691:1380" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="2196:2230" ph="SELECT `emai... Users" />
-            <marker date="1519745508041" expanded="true" signature="3045:3072" ph="DELETE FROM `Users`... " />
+            <marker date="1519745603789" expanded="true" signature="691:1377" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="691:1378" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="2194:2228" ph="SELECT `emai... Users" />
+            <marker date="1519745603789" expanded="true" signature="3043:3070" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -525,10 +525,10 @@
         <state relative-caret-position="273">
           <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding>
-            <marker date="1519745508041" expanded="true" signature="691:1379" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="691:1380" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="2196:2230" ph="SELECT `emai... Users" />
-            <marker date="1519745508041" expanded="true" signature="3045:3072" ph="DELETE FROM `Users`... " />
+            <marker date="1519745603789" expanded="true" signature="691:1377" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="691:1378" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="2194:2228" ph="SELECT `emai... Users" />
+            <marker date="1519745603789" expanded="true" signature="3043:3070" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -564,10 +564,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1519745508041" expanded="true" signature="691:1379" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="691:1380" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="2196:2230" ph="SELECT `emai... Users" />
-            <marker date="1519745508041" expanded="true" signature="3045:3072" ph="DELETE FROM `Users`... " />
+            <marker date="1519745603789" expanded="true" signature="691:1377" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="691:1378" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="2194:2228" ph="SELECT `emai... Users" />
+            <marker date="1519745603789" expanded="true" signature="3043:3070" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -601,10 +601,10 @@
         <state relative-caret-position="378">
           <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
-            <marker date="1519745508041" expanded="true" signature="691:1379" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="691:1380" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="2196:2230" ph="SELECT `emai... Users" />
-            <marker date="1519745508041" expanded="true" signature="3045:3072" ph="DELETE FROM `Users`... " />
+            <marker date="1519745603789" expanded="true" signature="691:1377" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="691:1378" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="2194:2228" ph="SELECT `emai... Users" />
+            <marker date="1519745603789" expanded="true" signature="3043:3070" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -632,10 +632,10 @@
         <state relative-caret-position="210">
           <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding>
-            <marker date="1519745508041" expanded="true" signature="691:1379" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="691:1380" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="2196:2230" ph="SELECT `emai... Users" />
-            <marker date="1519745508041" expanded="true" signature="3045:3072" ph="DELETE FROM `Users`... " />
+            <marker date="1519745603789" expanded="true" signature="691:1377" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="691:1378" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="2194:2228" ph="SELECT `emai... Users" />
+            <marker date="1519745603789" expanded="true" signature="3043:3070" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -693,12 +693,12 @@
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
-          <caret line="28" column="47" lean-forward="false" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
           <folding>
-            <marker date="1519745508041" expanded="true" signature="691:1379" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="691:1380" ph="CREATE TABLE... orders" />
-            <marker date="1519745508041" expanded="true" signature="2196:2230" ph="SELECT `emai... Users" />
-            <marker date="1519745508041" expanded="true" signature="3045:3072" ph="DELETE FROM `Users`... " />
+            <marker date="1519745603789" expanded="true" signature="691:1377" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="691:1378" ph="CREATE TABLE... orders" />
+            <marker date="1519745603789" expanded="true" signature="2194:2228" ph="SELECT `emai... Users" />
+            <marker date="1519745603789" expanded="true" signature="3043:3070" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>

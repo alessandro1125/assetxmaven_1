@@ -26,7 +26,7 @@
                 Statement stmt = null;
                 Connection connection;
 
-                String query = "CREATE TABLE `users` (" +
+                String query = "CREATE TABLE users (" +
                                     "ID int NOT NULL," +
                                     "email VARCHAR(255)," +
                                     "password VARCHAR(255), " +

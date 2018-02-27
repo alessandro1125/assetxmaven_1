@@ -73,7 +73,7 @@
                     Connection connection = getConnection();
 
                     //Faccio il login
-                    HashMap<String, Object> map = new HashMap<>();
+                    HashMap<String, Object> map = new HashMap();
                     map.put("email", "user1@gmail.com");
                     map.put("password", "password11252220");
                     map.put("nome", "user1@gmail.com");
@@ -110,7 +110,7 @@
             private static String[] selectSql(Connection connection, String name, String table){
 
                 String result[];
-                ArrayList<String> recordsArr = new ArrayList<>();
+                ArrayList<String> recordsArr = new ArrayList();
                 Statement stmt;
 
                 String query = "SELECT "+ name + " FROM "+table;//TODO più names

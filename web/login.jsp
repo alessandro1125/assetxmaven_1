@@ -115,7 +115,7 @@
              */
             private static String selectSql(Connection connection, String name, String table){
 
-                String resTmp;
+                String resTmp = "";
 
                 String result[];
                 ArrayList<String> recordsArr = new ArrayList();

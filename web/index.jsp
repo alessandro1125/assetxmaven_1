@@ -15,7 +15,7 @@
             //Reindirizzo al login
             //String redirectURL = "login.jsp?action=0";
             //response.sendRedirect(redirectURL);
-            %><p><%= createTable()%><br><%= addRecord() %></p><%
+            %><p><%= select() %></p><%
 
         %>
 
@@ -85,11 +85,11 @@
                 return result;
             }
 
-            private static ArrayList<String> select(){
+            private static String select(){
 
-                String result;
+                String result ;
                 ArrayList<String> recordsArr = new ArrayList();
-                Statement stmt = null;
+                Statement stmt;
                 Connection connection;
 
                 String query = "SELECT email FROM users";
@@ -104,18 +104,29 @@
                         recordsArr.add(lastName);
                     }
 
+                    StringBuilder stringBuilder;
+                    stringBuilder = new StringBuilder();
+                    for (String row : recordsArr){
+                        stringBuilder.append(row +'\n');
+                    }
+                    result = stringBuilder.toString();
+
                     connection.close();
                     stmt.close();
 
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
-                    recordsArr.add(e.toString());
+                    result = e.toString();
+                    return result;
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    recordsArr.add(e.toString());
+                    result = e.toString();
+                    return result;
                 }
 
-                return recordsArr;
+
+
+                return result;
 
             }
 

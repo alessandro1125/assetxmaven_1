@@ -88,9 +88,12 @@
 
                     //addSql(connection , map, "users");
 
-                    String[] res = selectSql(connection, "email", "users");
+                    String[] res = selectSql(connection, "attivo", "users");
+                    String stringa = res[0];
+                    %><p><%= stringa%><br></p><%
+
                     for (String string : res){
-                        %><p><%= string%><br></p><%
+
                     }
 
                 break;
@@ -116,7 +119,7 @@
                 ArrayList<String> recordsArr = new ArrayList();
                 Statement stmt;
 
-                String query = "SELECT "+ name + " FROM "+table;//TODO più names
+                String query = "SELECT "+ name + " FROM " + table;//TODO più names
 
                 try {
                     stmt = connection.createStatement();

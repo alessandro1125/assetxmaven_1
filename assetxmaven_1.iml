@@ -28,6 +28,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="assetx-utils-1.0" level="project" />
+    <orderEntry type="library" name="tomcat-catalina-8.0.0-rc3.jar" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.23" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-annotations-api:8.5.23" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-jasper:8.5.23" level="project" />
@@ -56,5 +57,12 @@
     <orderEntry type="library" name="Maven: com.google.guava:guava-jdk5:17.0" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4.1208" level="project" />
     <orderEntry type="library" name="Maven: com.assetx:assetx-utils:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:catalina-ha:6.0.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:coyote:6.0.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:servlet-api:6.0.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:juli:6.0.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tribes:6.0.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:catalina:6.0.16" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:annotations-api:6.0.16" level="project" />
   </component>
 </module>

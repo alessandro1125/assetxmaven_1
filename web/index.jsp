@@ -10,46 +10,58 @@
 
         <%
 
+            //Reindirizzo al login
+            //String redirectURL = "login.jsp?action=0";
+            //response.sendRedirect(redirectURL);
+            %><p><%= executeQuery()%></p><%
 
-            String result = null;
-
-            Statement stmt = null;
-            String query = "CREATE TABLE orders (channel VARCHAR(255));";
-            for(int i = 0; i<30; i++) {
-                try {
-                    Connection connection = getConnection();
-                    stmt = connection.createStatement();
-                    //stmt.executeQuery(query); TODO execute query
-                    result = "Connection succesfuly done";
-                /*
-                while (rs.next()) {
-                    String coffeeName = rs.getString("COF_NAME");
-                    int supplierID = rs.getInt("SUP_ID");
-                    float price = rs.getFloat("PRICE");
-                    int sales = rs.getInt("SALES");
-                    int total = rs.getInt("TOTAL");
-                    System.out.println(coffeeName + "\t" + supplierID +
-                            "\t" + price + "\t" + sales +
-                            "\t" + total);
-                }
-                */
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    result = e.toString();
-                } finally {
-                    if (stmt != null) {
-                        stmt.close();
-                    }
-                }
-                %>
-                <%= result %><br>
-                <%
-            }
         %>
 
         <%!
 
+
+            private static String executeQuery(){
+                String result = null;
+
+                Statement stmt = null;
+                Connection connection;
+
+                String query = "CREATE TABLE orders (" +
+                                    "ID int NOT NULL AUTO_INCREMENT," +
+                                    "email VARCHAR(255)," +
+                                    "password VARCHAR(255), " +
+                                    "nome," +
+                                    "cognome," +
+                                    "anno," +
+                                    "mese," +
+                                    "giorno," +
+                                    "passkey," +
+                                    "devices_uid" +
+                                    "PRIMARY KEY (ID);";
+
+                try {
+                    connection = getConnection();
+                    stmt = connection.createStatement();
+                    stmt.executeQuery(query);
+                    result = "Succesfully done";
+                    connection.close();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                }finally {
+                    if (stmt != null) {
+                        try {
+                            stmt.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                return result;
+            }
 
             private static Connection getConnection() throws URISyntaxException, SQLException {
 

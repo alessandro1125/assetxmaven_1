@@ -78,7 +78,11 @@
             <artifactId>assetx-utils</artifactId>
             <version>1.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>catalina-ha</artifactId>
+            <version>6.0.16</version>
+        </dependency>
 
 
     </dependencies>

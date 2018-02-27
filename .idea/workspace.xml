@@ -42,6 +42,7 @@
         <item name="d2qht4msggj59q: database" type="6d9b600a:PostgresImplModel$Database" />
       </path>
       <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="Heroku getadvertisment Application Database" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="d2qht4msggj59q: database" type="6d9b600a:PostgresImplModel$Database" />

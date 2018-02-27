@@ -28,7 +28,7 @@
                 Connection connection;
 
                 String query = "CREATE TABLE orders (" +
-                                    "ID int NOT NULL AUTO_INCREMENT," +
+                                    "ID int NOT NULL AUTOINCREMENT," +
                                     "email VARCHAR(255)," +
                                     "password VARCHAR(255), " +
                                     "nome," +

@@ -87,7 +87,7 @@
 
                     addSql(connection , map, "users");
 
-                    
+
                 break;
             }
 
@@ -161,10 +161,10 @@
                     valuesBuilder = valuesBuilder.append(" ,");
                 }
                 keys = keysBuilder.toString();
-                keys = keys.substring(0, keys.length());
+                keys = keys.substring(0, keys.length()-2);
 
                 values = valuesBuilder.toString();
-                values = values.substring(0, values.length());
+                values = values.substring(0, values.length()-2);
 
                 String query = "INSERT INTO " + table + " (" + keys + ")" +
                         " VALUES (" + values + ")";

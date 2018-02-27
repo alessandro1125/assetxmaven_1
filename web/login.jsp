@@ -83,7 +83,7 @@
                     map.put("devices_uid", "0");
 
                     //addSql(getConnection(), map, "users");
-                    String[] res = selectSql(getConnection(), "attivo", "users");
+                    String[] res = selectSql(getConnection(), "email", "users");
                     for (String stringa : res){
                         %><p><%= stringa%><br></p><%
                     }

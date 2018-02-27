@@ -3,6 +3,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Properties" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html lang="it" dir="ltr">
@@ -70,7 +71,7 @@
                     break;
                 case 1:
 
-                    Connection connection = getConnection();
+                    Connection connection = getConnectionHeroku();
 
                     //Faccio il login
                     HashMap<String, Object> map = new HashMap();
@@ -88,8 +89,8 @@
                     //addSql(connection , map, "users");
 
                     String[] res = selectSql(connection, "attivo", "users");
-                    for (String stringa : res){
-                        %><p><%= stringa%><br></p><%
+                    for (String string : res){
+                        %><p><%= string%><br></p><%
                     }
 
                 break;
@@ -188,7 +189,7 @@
              * Metodo per la connessione al database locale Heroku
              * @return
              */
-            private static Connection getConnection(){
+            private static Connection getConnectionHeroku(){
                 try {
                     URI dbUri = null;
                     dbUri = new URI(System.getenv("DATABASE_URL"));
@@ -206,6 +207,35 @@
                 }
 
                 return null;
+            }
+
+            private static Connection getConnection(){
+
+                Connection connection = null;
+                try {
+                    // Step 1: "Load" the JDBC driver
+                    Class.forName("com.imaginary.sql.msql.MsqlDriver");
+
+                    Properties props = new Properties();
+                    props.setProperty("user","sagdjsuxgvztxk");
+                    props.setProperty("password","8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a");
+                    props.setProperty("ssl","true");
+                    props.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
+
+                    // Step 2: Establish the connection to the database
+                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q";
+
+                    connection = DriverManager.getConnection(url,props);
+
+                }
+                catch (Exception e)
+                {
+                    System.err.println("D'oh! Got an exception!");
+                    System.err.println(e.getMessage());
+                }
+
+                return connection;
+
             }
 
 

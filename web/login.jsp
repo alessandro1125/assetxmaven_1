@@ -89,7 +89,7 @@
                     //addSql(connection , map, "users");
 
                     String[] res = selectSql(connection, "attivo", "users");
-                    String stringa = res[0];
+                    String stringa = "";
                     %><p><%= stringa%><br></p><%
 
                     for (String string : res){

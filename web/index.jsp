@@ -14,19 +14,19 @@
             //Reindirizzo al login
             //String redirectURL = "login.jsp?action=0";
             //response.sendRedirect(redirectURL);
-            %><p><%= executeQuery()%></p><%
+            %><p><%= createTable()%></p><%
 
         %>
 
         <%!
 
 
-            private static String executeQuery(){
+            private static String createTable(){
                 String result;
                 Statement stmt = null;
                 Connection connection;
 
-                String query = "CREATE TABLE orders (" +
+                String query = "CREATE TABLE `users` (" +
                                     "ID int NOT NULL," +
                                     "email VARCHAR(255)," +
                                     "password VARCHAR(255), " +
@@ -45,21 +45,70 @@
                     stmt.executeQuery(query);
                     result = "Succesfully done";
                     connection.close();
+                    stmt.close();
+
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
                     result = e.toString();
                 } catch (SQLException e) {
                     e.printStackTrace();
                     result = e.toString();
-                }finally {
-                    if (stmt != null) {
-                        try {
-                            stmt.close();
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                    }
                 }
+
+                return result;
+            }
+
+            private static String select(){
+
+                String result;
+                Statement stmt = null;
+                Connection connection;
+
+                String query = "SELECT `email`FROM `Users` WHERE 1";
+
+                try {
+                    connection = getConnection();
+                    stmt = connection.createStatement();
+                    stmt.executeQuery(query);
+                    result = "Succesfully done";
+                    connection.close();
+                    stmt.close();
+
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                }
+
+                return result;
+
+            }
+
+            private static String delete(){
+                String result;
+                Statement stmt = null;
+                Connection connection;
+
+                String query = "DELETE FROM `Users` WHERE 1";
+
+                try {
+                    connection = getConnection();
+                    stmt = connection.createStatement();
+                    stmt.executeQuery(query);
+                    result = "Succesfully done";
+                    connection.close();
+                    stmt.close();
+
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                }
+
                 return result;
             }
 

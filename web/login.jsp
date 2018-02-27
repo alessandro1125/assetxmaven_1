@@ -78,11 +78,11 @@
                     map.put("anno", "user1@gmail.com");
                     map.put("mese", "user1@gmail.com");
                     map.put("giorno", "user1@gmail.com");
-                    map.put("attivo", 1);
+                    map.put("attivo", "1");
                     map.put("passkey", "0");
                     map.put("devices_uid", "0");
 
-                    //addSql(getConnection(), map, "users");
+                    addSql(getConnection(), map, "users");
                     String[] res = selectSql(getConnection(), "attivo", "users");
                     for (String stringa : res){
                         %><p><%= stringa%><br></p><%

@@ -33,18 +33,18 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+            <state relative-caret-position="1260">
+              <caret line="63" column="56" lean-forward="false" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
               <folding>
-                <marker date="1519750884469" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-                <marker date="1519750884469" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-                <marker date="1519750884469" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-                <marker date="1519750884469" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-                <marker date="1519750884469" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-                <marker date="1519750884469" expanded="true" signature="1738:2361" ph="CREATE TABLE... orders" />
-                <marker date="1519750884469" expanded="true" signature="1738:2362" ph="CREATE TABLE... orders" />
-                <marker date="1519750884469" expanded="true" signature="3236:3259" ph="SELECT `emai... Users" />
-                <marker date="1519750884469" expanded="true" signature="4580:4607" ph="DELETE FROM `Users`... " />
+                <marker date="1519752839954" expanded="true" signature="697:835" ph="INSERT INTO users... " />
+                <marker date="1519752839954" expanded="true" signature="697:913" ph="INSERT INTO users... " />
+                <marker date="1519752839954" expanded="true" signature="697:917" ph="INSERT INTO users... " />
+                <marker date="1519752839954" expanded="true" signature="1736:1754" ph="CREATE TABLE... users" />
+                <marker date="1519752839954" expanded="true" signature="1736:1756" ph="CREATE TABLE... users" />
+                <marker date="1519752839954" expanded="true" signature="1736:2368" ph="CREATE TABLE... orders" />
+                <marker date="1519752839954" expanded="true" signature="1736:2369" ph="CREATE TABLE... orders" />
+                <marker date="1519752839954" expanded="true" signature="3243:3266" ph="SELECT `emai... Users" />
+                <marker date="1519752839954" expanded="true" signature="4587:4614" ph="DELETE FROM `Users`... " />
               </folding>
             </state>
           </provider>
@@ -53,16 +53,16 @@
       <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="85" column="69" lean-forward="false" selection-start-line="85" selection-start-column="69" selection-end-line="85" selection-end-column="69" />
+            <state relative-caret-position="651">
+              <caret line="85" column="20" lean-forward="false" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
               <folding>
-                <marker date="1519750889457" expanded="true" signature="4165:4172" ph="SELECT missi... " />
-                <marker date="1519750889457" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
-                <marker date="1519750889457" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
-                <marker date="1519750889457" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
-                <marker date="1519750889457" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
-                <marker date="1519750889457" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
-                <marker date="1519750889457" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
+                <marker date="1519752892056" expanded="true" signature="4165:4172" ph="SELECT missi... " />
+                <marker date="1519752892056" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
+                <marker date="1519752892056" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
+                <marker date="1519752892056" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
+                <marker date="1519752892056" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
+                <marker date="1519752892056" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
+                <marker date="1519752892056" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
               </folding>
             </state>
           </provider>
@@ -417,12 +417,12 @@
       <workItem from="1519680118293" duration="1617000" />
       <workItem from="1519721659462" duration="4550000" />
       <workItem from="1519736380959" duration="135000" />
-      <workItem from="1519736879265" duration="11147000" />
+      <workItem from="1519736879265" duration="11884000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24623000" />
+    <option name="totallyTimeSpent" value="25360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
@@ -477,15 +477,15 @@
         <state relative-caret-position="273">
           <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding>
-            <marker date="1519750884469" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:2361" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="1738:2362" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="3236:3259" ph="SELECT `emai... Users" />
-            <marker date="1519750884469" expanded="true" signature="4580:4607" ph="DELETE FROM `Users`... " />
+            <marker date="1519752839954" expanded="true" signature="697:835" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:913" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:917" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="1736:1754" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:1756" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:2368" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="1736:2369" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="3243:3266" ph="SELECT `emai... Users" />
+            <marker date="1519752839954" expanded="true" signature="4587:4614" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -513,13 +513,13 @@
         <state relative-caret-position="1554">
           <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
-            <marker date="1519750889457" expanded="true" signature="4165:4172" ph="SELECT missi... " />
-            <marker date="1519750889457" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
-            <marker date="1519750889457" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
-            <marker date="1519750889457" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4172" ph="SELECT missi... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
+            <marker date="1519752892056" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
+            <marker date="1519752892056" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>
@@ -529,15 +529,15 @@
         <state relative-caret-position="273">
           <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding>
-            <marker date="1519750884469" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:2361" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="1738:2362" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="3236:3259" ph="SELECT `emai... Users" />
-            <marker date="1519750884469" expanded="true" signature="4580:4607" ph="DELETE FROM `Users`... " />
+            <marker date="1519752839954" expanded="true" signature="697:835" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:913" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:917" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="1736:1754" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:1756" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:2368" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="1736:2369" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="3243:3266" ph="SELECT `emai... Users" />
+            <marker date="1519752839954" expanded="true" signature="4587:4614" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -565,13 +565,13 @@
         <state relative-caret-position="189">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1519750889457" expanded="true" signature="4165:4172" ph="SELECT missi... " />
-            <marker date="1519750889457" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
-            <marker date="1519750889457" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
-            <marker date="1519750889457" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4172" ph="SELECT missi... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
+            <marker date="1519752892056" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
+            <marker date="1519752892056" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>
@@ -581,15 +581,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1519750884469" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:2361" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="1738:2362" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="3236:3259" ph="SELECT `emai... Users" />
-            <marker date="1519750884469" expanded="true" signature="4580:4607" ph="DELETE FROM `Users`... " />
+            <marker date="1519752839954" expanded="true" signature="697:835" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:913" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:917" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="1736:1754" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:1756" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:2368" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="1736:2369" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="3243:3266" ph="SELECT `emai... Users" />
+            <marker date="1519752839954" expanded="true" signature="4587:4614" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -599,13 +599,13 @@
         <state relative-caret-position="153">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1519750889457" expanded="true" signature="4165:4172" ph="SELECT missi... " />
-            <marker date="1519750889457" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
-            <marker date="1519750889457" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
-            <marker date="1519750889457" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4172" ph="SELECT missi... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
+            <marker date="1519752892056" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
+            <marker date="1519752892056" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>
@@ -623,13 +623,13 @@
         <state relative-caret-position="189">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1519750889457" expanded="true" signature="4165:4172" ph="SELECT missi... " />
-            <marker date="1519750889457" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
-            <marker date="1519750889457" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
-            <marker date="1519750889457" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4172" ph="SELECT missi... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
+            <marker date="1519752892056" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
+            <marker date="1519752892056" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>
@@ -639,15 +639,15 @@
         <state relative-caret-position="378">
           <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
-            <marker date="1519750884469" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:2361" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="1738:2362" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="3236:3259" ph="SELECT `emai... Users" />
-            <marker date="1519750884469" expanded="true" signature="4580:4607" ph="DELETE FROM `Users`... " />
+            <marker date="1519752839954" expanded="true" signature="697:835" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:913" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:917" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="1736:1754" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:1756" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:2368" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="1736:2369" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="3243:3266" ph="SELECT `emai... Users" />
+            <marker date="1519752839954" expanded="true" signature="4587:4614" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -675,15 +675,15 @@
         <state relative-caret-position="210">
           <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding>
-            <marker date="1519750884469" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:2361" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="1738:2362" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="3236:3259" ph="SELECT `emai... Users" />
-            <marker date="1519750884469" expanded="true" signature="4580:4607" ph="DELETE FROM `Users`... " />
+            <marker date="1519752839954" expanded="true" signature="697:835" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:913" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:917" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="1736:1754" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:1756" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:2368" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="1736:2369" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="3243:3266" ph="SELECT `emai... Users" />
+            <marker date="1519752839954" expanded="true" signature="4587:4614" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
@@ -732,34 +732,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        <state relative-caret-position="1260">
+          <caret line="63" column="56" lean-forward="false" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
           <folding>
-            <marker date="1519750884469" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-            <marker date="1519750884469" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-            <marker date="1519750884469" expanded="true" signature="1738:2361" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="1738:2362" ph="CREATE TABLE... orders" />
-            <marker date="1519750884469" expanded="true" signature="3236:3259" ph="SELECT `emai... Users" />
-            <marker date="1519750884469" expanded="true" signature="4580:4607" ph="DELETE FROM `Users`... " />
+            <marker date="1519752839954" expanded="true" signature="697:835" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:913" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="697:917" ph="INSERT INTO users... " />
+            <marker date="1519752839954" expanded="true" signature="1736:1754" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:1756" ph="CREATE TABLE... users" />
+            <marker date="1519752839954" expanded="true" signature="1736:2368" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="1736:2369" ph="CREATE TABLE... orders" />
+            <marker date="1519752839954" expanded="true" signature="3243:3266" ph="SELECT `emai... Users" />
+            <marker date="1519752839954" expanded="true" signature="4587:4614" ph="DELETE FROM `Users`... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="85" column="69" lean-forward="false" selection-start-line="85" selection-start-column="69" selection-end-line="85" selection-end-column="69" />
+        <state relative-caret-position="651">
+          <caret line="85" column="20" lean-forward="false" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
           <folding>
-            <marker date="1519750889457" expanded="true" signature="4165:4172" ph="SELECT missi... " />
-            <marker date="1519750889457" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
-            <marker date="1519750889457" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
-            <marker date="1519750889457" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
-            <marker date="1519750889457" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4172" ph="SELECT missi... " />
+            <marker date="1519752892056" expanded="true" signature="4165:4189" ph="SELECT missi... missingValue" />
+            <marker date="1519752892056" expanded="true" signature="4165:4196" ph="SELECT + FRO... users" />
+            <marker date="1519752892056" expanded="true" signature="6278:6290" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6305" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6356" ph="INSERT INTO missingValue... " />
+            <marker date="1519752892056" expanded="true" signature="6278:6371" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>

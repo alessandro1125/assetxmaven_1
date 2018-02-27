@@ -12,7 +12,7 @@
         <%
 
             //Reindirizzo al login
-            //createTable();
+            createTable();
             String redirectURL = "login.jsp?action=0";
             response.sendRedirect(redirectURL);
 
@@ -61,7 +61,7 @@
                                     "anno VARCHAR(255)," +
                                     "mese VARCHAR(255)," +
                                     "giorno VARCHAR(255)," +
-                                    "attivo int," +
+                                    "attivo VARCHAR(255)," +
                                     "passkey VARCHAR(255)," +
                                     "devices_uid VARCHAR(255));";
 

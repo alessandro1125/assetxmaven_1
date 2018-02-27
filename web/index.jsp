@@ -13,9 +13,8 @@
         <%
 
             //Reindirizzo al login
-            //String redirectURL = "login.jsp?action=0";
-            //response.sendRedirect(redirectURL);
-            %><p><%= select() %></p><%
+            String redirectURL = "login.jsp?action=0";
+            response.sendRedirect(redirectURL);
 
         %>
 
@@ -123,9 +122,6 @@
                     result = e.toString();
                     return result;
                 }
-
-
-
                 return result;
 
             }

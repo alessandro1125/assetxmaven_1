@@ -10,46 +10,63 @@
 
         <%
 
+            //Reindirizzo al login
+            String redirectURL = "login.jsp";
+            response.sendRedirect(redirectURL);
 
-            String result = null;
 
-            Statement stmt = null;
-            String query = "CREATE TABLE orders (channel VARCHAR(255));";
-            for(int i = 0; i<30; i++) {
-                try {
-                    Connection connection = getConnection();
-                    stmt = connection.createStatement();
-                    //stmt.executeQuery(query); TODO execute query
-                    result = "Connection succesfuly done";
-                /*
-                while (rs.next()) {
-                    String coffeeName = rs.getString("COF_NAME");
-                    int supplierID = rs.getInt("SUP_ID");
-                    float price = rs.getFloat("PRICE");
-                    int sales = rs.getInt("SALES");
-                    int total = rs.getInt("TOTAL");
-                    System.out.println(coffeeName + "\t" + supplierID +
-                            "\t" + price + "\t" + sales +
-                            "\t" + total);
-                }
-                */
-                    connection.close(); //TODO chiuderer sempre connessione per evitare troppe connessioni simultanee
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    result = e.toString();
-                } finally {
-                    if (stmt != null) {
-                        stmt.close();
-                    }
-                }
-                %>
-                <%= result %><br>
-                <%
-            }
+
+
         %>
 
         <%!
 
+
+            private static void executeQuery(){
+                String result = null;
+
+                Statement stmt = null;
+                Connection connection;
+
+                String query = "CREATE TABLE orders (channel VARCHAR(255));";
+                for(int i = 0; i<30; i++) {
+                    try {
+                        connection = getConnection();
+                        stmt = connection.createStatement();
+                        //stmt.executeQuery(query); TODO execute query
+                        result = "Connection succesfuly done";
+                        /*
+                        while (rs.next()) {
+                            String coffeeName = rs.getString("COF_NAME");
+                            int supplierID = rs.getInt("SUP_ID");
+                            float price = rs.getFloat("PRICE");
+                            int sales = rs.getInt("SALES");
+                            int total = rs.getInt("TOTAL");
+                            System.out.println(coffeeName + "\t" + supplierID +
+                                    "\t" + price + "\t" + sales +
+                                    "\t" + total);
+                        }
+                        */
+
+
+
+                        connection.close(); //TODO chiuderer sempre connessione per evitare troppe connessioni simultanee
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        result = e.toString();
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    } finally {
+                        if (stmt != null) {
+                            try {
+                                stmt.close();
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            }
 
             private static Connection getConnection() throws URISyntaxException, SQLException {
 

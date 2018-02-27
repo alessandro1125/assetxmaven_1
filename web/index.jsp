@@ -3,6 +3,7 @@
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.net.URI" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
     <head>
         <title>Get Advertisment</title>
@@ -14,12 +15,39 @@
             //Reindirizzo al login
             //String redirectURL = "login.jsp?action=0";
             //response.sendRedirect(redirectURL);
-            %><p><%= createTable()%></p><%
+            %><p><%= createTable()%><br><%= addRecord() %></p><%
 
         %>
 
         <%!
 
+            private static String addRecord(){
+
+                String result;
+                Statement stmt = null;
+                Connection connection;
+
+                String query = "INSERT INTO users (email, password, nome, cognome, anno, mese, giorno, attivo, passkey, devices_uid)" +
+                        " VALUES ('admin@assetx.com', 'admin1125', 'admin.', 'admin', '0000', '00', '00', '00', 1, '0', '')";
+
+                try {
+                    connection = getConnection();
+                    stmt = connection.createStatement();
+                    stmt.executeQuery(query);
+                    result = "Succesfully done";
+                    connection.close();
+                    stmt.close();
+
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    result = e.toString();
+                }
+
+                return result;
+            }
 
             private static String createTable(){
                 String result;
@@ -35,6 +63,7 @@
                                     "anno VARCHAR(255)," +
                                     "mese VARCHAR(255)," +
                                     "giorno VARCHAR(255)," +
+                                    "attivo int," +
                                     "passkey VARCHAR(255)," +
                                     "devices_uid VARCHAR(255)," +
                                     "PRIMARY KEY (ID));";
@@ -58,31 +87,37 @@
                 return result;
             }
 
-            private static String select(){
+            private static ArrayList<String> select(){
 
                 String result;
+                ArrayList<String> recordsArr = new ArrayList();
                 Statement stmt = null;
                 Connection connection;
 
-                String query = "SELECT `email`FROM `Users` WHERE 1";
+                String query = "SELECT email FROM users";
 
                 try {
                     connection = getConnection();
                     stmt = connection.createStatement();
-                    stmt.executeQuery(query);
-                    result = "Succesfully done";
+
+                    ResultSet rs = stmt.executeQuery(query);
+                    while (rs.next()) {
+                        String lastName = rs.getString("email");
+                        recordsArr.add(lastName);
+                    }
+
                     connection.close();
                     stmt.close();
 
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
-                    result = e.toString();
+                    recordsArr.add(e.toString());
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    result = e.toString();
+                    recordsArr.add(e.toString());
                 }
 
-                return result;
+                return recordsArr;
 
             }
 

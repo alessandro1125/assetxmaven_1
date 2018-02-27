@@ -12,6 +12,7 @@
         <%
 
             //Reindirizzo al login
+            //createTable();
             String redirectURL = "login.jsp?action=0";
             response.sendRedirect(redirectURL);
 

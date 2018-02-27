@@ -33,7 +33,7 @@
                             "\t" + total);
                 }
                 */
-                    connection.close();
+                    connection.close(); //TODO chiuderer sempre connessione per evitare troppe connessioni simultanee
                 } catch (SQLException e) {
                     e.printStackTrace();
                     result = e.toString();

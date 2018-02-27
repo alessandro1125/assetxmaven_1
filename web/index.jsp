@@ -5,7 +5,7 @@
 <%@ page import="java.sql.*" %>
 <html>
     <head>
-        <title>Title</title>
+        <title>Get Advertisment</title>
     </head>
     <body>
 
@@ -22,22 +22,21 @@
 
 
             private static String executeQuery(){
-                String result = null;
-
+                String result;
                 Statement stmt = null;
                 Connection connection;
 
                 String query = "CREATE TABLE orders (" +
-                                    "ID int NOT NULL AUTOINCREMENT," +
+                                    "ID int NOT NULL," +
                                     "email VARCHAR(255)," +
                                     "password VARCHAR(255), " +
-                                    "nome," +
-                                    "cognome," +
-                                    "anno," +
-                                    "mese," +
-                                    "giorno," +
-                                    "passkey," +
-                                    "devices_uid" +
+                                    "nome VARCHAR(255)," +
+                                    "cognome VARCHAR(255)," +
+                                    "anno VARCHAR(255)," +
+                                    "mese VARCHAR(255)," +
+                                    "giorno VARCHAR(255)," +
+                                    "passkey VARCHAR(255)," +
+                                    "devices_uid VARCHAR(255)" +
                                     "PRIMARY KEY (ID);";
 
                 try {

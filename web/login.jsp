@@ -69,6 +69,9 @@
                     <%
                     break;
                 case 1:
+
+                    Connection connection = getConnection();
+
                     //Faccio il login
                     HashMap<String, Object> map = new HashMap<>();
                     map.put("email", "user1@gmail.com");
@@ -82,12 +85,12 @@
                     map.put("passkey", "0");
                     map.put("devices_uid", "0");
 
-                    addSql(getConnection(), map, "users");
-                    String[] res = selectSql(getConnection(), "attivo", "users");
+                    addSql(connection , map, "users");
+                    String[] res = selectSql(connection, "attivo", "users");
                     for (String stringa : res){
                         %><p><%= stringa%><br></p><%
                     }
-
+                break;
             }
 
 

@@ -36,7 +36,7 @@
                                     "mese VARCHAR(255)," +
                                     "giorno VARCHAR(255)," +
                                     "passkey VARCHAR(255)," +
-                                    "devices_uid VARCHAR(255)" +
+                                    "devices_uid VARCHAR(255)," +
                                     "PRIMARY KEY (ID);";
 
                 try {

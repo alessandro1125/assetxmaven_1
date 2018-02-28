@@ -91,7 +91,10 @@
 
                     //String[] res = selectSql(connection, "attivo", "users");
 
-                        %><p><%= string%><br></p><%
+
+                    connection.close();
+                    
+                        %><p><%= result%><br></p><%
 
 
                 break;

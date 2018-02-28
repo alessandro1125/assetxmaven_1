@@ -81,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="412">
@@ -104,14 +104,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users" pinned="false" current-in-tab="false">
-        <entry file="das://table:/3ff7445a/45e79fdc-a5c1-4099-b503-c3f477cb4794/d2qht4msggj59q.public.users">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-              <column-attributes>
-                <column name="ctid" enabled="false" />
-              </column-attributes>
+      <file leaf-file-name="uids_dashboard.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/uids_dashboard.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,8 +130,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Jsp File" />
         <option value="CSS File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -156,6 +154,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/formstyle.css" />
         <option value="$PROJECT_DIR$/web/login.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/uids_dashboard.jsp" />
       </list>
     </option>
   </component>
@@ -450,12 +449,12 @@
       <workItem from="1519758230588" duration="1220000" />
       <workItem from="1519768820577" duration="806000" />
       <workItem from="1519813703137" duration="10653000" />
-      <workItem from="1519837451479" duration="3905000" />
+      <workItem from="1519837451479" duration="4176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46429000" />
+    <option name="totallyTimeSpent" value="46700000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -976,16 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3ff7445a/45e79fdc-a5c1-4099-b503-c3f477cb4794/d2qht4msggj59q.public.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1001,6 +990,16 @@
             <marker date="1519754723902" expanded="true" signature="3245:3268" ph="SELECT `emai... Users" />
             <marker date="1519754723902" expanded="true" signature="4589:4616" ph="DELETE FROM `Users`... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3ff7445a/45e79fdc-a5c1-4099-b503-c3f477cb4794/d2qht4msggj59q.public.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="ctid" enabled="false" />
+          </column-attributes>
         </state>
       </provider>
     </entry>
@@ -1022,6 +1021,14 @@
             <marker date="1519841244032" expanded="true" signature="12433:12511" ph="INSERT INTO missingValue... " />
             <marker date="1519841244032" expanded="true" signature="12433:12526" ph="INSERT INTO users... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/uids_dashboard.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

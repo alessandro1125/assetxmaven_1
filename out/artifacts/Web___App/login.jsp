@@ -4,6 +4,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Properties" %>
+<%@ page import="java.util.Base64" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html lang="it" dir="ltr">
@@ -19,25 +20,37 @@
         <%
             //Controllo l'action
             int action = 0;
-            String message;
-            if(request.getParameter("message") != null){
-                try{
-                    message = request.getParameter("message");
-                    //Stampo il message
-                    %>
+            String message, base64Message;
+
+            try {
+                if(request.getParameter("message") != null){
+                    try{
+                        base64Message = request.getParameter("message");
+                        message = new String(Base64.getDecoder().decode(base64Message));
+                        //Stampo il message
+                        %>
                         <p class="form-style-8"><%= message %></p>
-                    <%
-                }catch (NullPointerException e){
-                    e.printStackTrace();
+                        <%
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
+                    }
                 }
+            }catch (Exception e){
+                e.printStackTrace();
             }
-            if(request.getParameter("action") != null){
-                try{
-                    action = Integer.parseInt(request.getParameter("action"));
-                }catch (NullPointerException e){
-                    e.printStackTrace();
+
+            try{
+                if(request.getParameter("action") != null){
+                    try{
+                        action = Integer.parseInt(request.getParameter("action"));
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
+                    }
                 }
+            }catch (Exception e){
+                action = 0;
             }
+
 
             switch (action){
                 case 0:
@@ -55,7 +68,7 @@
                     <input type="submit" value="Login">
                 </form>
                 <form action="create_account.jsp" method="get">
-                    <input type="submit" value="Sign Ins">
+                    <input type="submit" value="Sign In">
                 </form>
                 </form>
                 <form action="reset_password.jsp" method="get">
@@ -71,33 +84,47 @@
                     break;
                 case 1:
 
-                    Connection connection = getConnectionHeroku();
+                    //FACCIO IL LOGIN
+                    //Mi connetto al db
+                    Connection connection = null;
+                    //connection = getConnectionHeroku();
 
-                    //Faccio il login
-                    HashMap<String, Object> map = new HashMap();
-                    map.put("email", "user1@gmail.com");
-                    map.put("password", "password11252220");
-                    map.put("nome", "user1@gmail.com");
-                    map.put("cognome", "user1@gmail.com");
-                    map.put("anno", "user1@gmail.com");
-                    map.put("mese", "user1@gmail.com");
-                    map.put("giorno", "user1@gmail.com");
-                    map.put("attivo", "1");
-                    map.put("passkey", "0");
-                    map.put("devices_uid", "0");
+                    //if(connection != null){
+                    if(false){
 
-                    //addSql(connection , map, "users");
 
-                    //String[] res = selectSql(connection, "attivo", "users");
 
-                    try {
-                        connection.close();
-                    }catch (SQLException e){
-                        e.printStackTrace();
+                        /*
+                        HashMap<String, Object> map = new HashMap();
+                        map.put("email", "user1@gmail.com");
+                        map.put("password", "password11252220");
+                        map.put("nome", "user1@gmail.com");
+                        map.put("cognome", "user1@gmail.com");
+                        map.put("anno", "user1@gmail.com");
+                        map.put("mese", "user1@gmail.com");
+                        map.put("giorno", "user1@gmail.com");
+                        map.put("attivo", "1");
+                        map.put("passkey", "0");
+                        map.put("devices_uid", "0");*/
+
+                        //addSql(connection , map, "users");
+
+                        //String[] res = selectSql(connection, "attivo", "users");
+
+                        try {
+                            connection.close();
+                        }catch (SQLException e){
+                            e.printStackTrace();
+                        }
+
+                            %><p><%= connection%><br></p><%
+                    }else {
+                        //Se fallisce la connessione al database
+                        System.out.println("Unable to connect to database");
+                        byte[] messageBy = Base64.getEncoder().encode("Unable to connect to database".getBytes());
+                        String redirectURL = "login.jsp?action=0&message=" + new String(messageBy);
+                        response.sendRedirect(redirectURL);
                     }
-
-                        %><p><%= connection%><br></p><%
-
 
                 break;
             }

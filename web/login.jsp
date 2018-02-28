@@ -71,8 +71,7 @@
                     break;
                 case 1:
 
-                    Connection connection = getConnection();
-                    String result = connection.getCatalog();
+                    Connection connection = getConnectionHeroku();
 
                     //Faccio il login
                     HashMap<String, Object> map = new HashMap();
@@ -91,10 +90,13 @@
 
                     //String[] res = selectSql(connection, "attivo", "users");
 
+                    try {
+                        connection.close();
+                    }catch (SQLException e){
+                        e.printStackTrace();
+                    }
 
-                    connection.close();
-
-                        %><p><%= result%><br></p><%
+                        %><p><%= connection%><br></p><%
 
 
                 break;
@@ -217,10 +219,8 @@
 
                 Connection connection = null;
                 try {
-                    // Step 1: "Load" the JDBC driver
-                    //Class.forName("com.imaginary.sql.msql.MsqlDriver");
 
-                    /*try {
+                    try {
 
                         Class.forName("org.postgresql.Driver");
 
@@ -231,9 +231,8 @@
                         e.printStackTrace();
                         return null;
 
-                    }*/
+                    }
 
-                    // Step 2: Establish the connection to the database
                     String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/" +
                             "d2qht4msggj59q?" +
                             "sslmode=require&user=sagdjsuxgvztxk&" +

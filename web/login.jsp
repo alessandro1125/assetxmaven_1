@@ -218,13 +218,23 @@
                 Connection connection = null;
                 try {
                     // Step 1: "Load" the JDBC driver
-                    Class.forName("com.imaginary.sql.msql.MsqlDriver");
+                    //Class.forName("com.imaginary.sql.msql.MsqlDriver");
+                    try {
 
+                        Class.forName("org.postgresql.Driver");
+
+                    } catch (ClassNotFoundException e) {
+
+                        System.out.println("Where is your PostgreSQL JDBC Driver? "
+                                + "Include in your library path!");
+                        e.printStackTrace();
+                        return null;
+
+                    }
 
                     Properties props = new Properties();
                     props.setProperty("user","sagdjsuxgvztxk");
                     props.setProperty("password","8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a");
-
 
                     // Step 2: Establish the connection to the database
                     String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q?sslmode=require&user=sagdjsuxgvztxk&password=8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a";
@@ -233,7 +243,7 @@
 
                 }
                 catch (Exception e) {
-                    System.err.println("D'oh! Got an exception!");
+                    System.err.println("Database connection failed");
                     System.err.println(e.getMessage());
                 }
 

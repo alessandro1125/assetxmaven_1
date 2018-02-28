@@ -72,7 +72,7 @@
                 case 1:
 
                     Connection connection = getConnection();
-                    String stringa = connection.getCatalog();
+                    String result = connection.getCatalog();
 
                     //Faccio il login
                     HashMap<String, Object> map = new HashMap();
@@ -89,10 +89,13 @@
 
                     //addSql(connection , map, "users");
 
-                    String[] res = selectSql(connection, "attivo", "users");
-                    for (String string : res){
-                        %><p><%= stringa%><br></p><%
-                    }
+                    //String[] res = selectSql(connection, "attivo", "users");
+
+
+                    connection.close();
+
+                        %><p><%= result%><br></p><%
+
 
                 break;
             }
@@ -117,14 +120,14 @@
                 ArrayList<String> recordsArr = new ArrayList();
                 Statement stmt;
 
-                String query = "SELECT "+ name + " FROM "+table;//TODO più names
+                String query = "SELECT "+ name + " FROM " + table;//TODO più names
 
                 try {
                     stmt = connection.createStatement();
 
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next()) {
-                        String lastName = rs.getString("email");
+                        String lastName = rs.getString(name);
                         recordsArr.add(lastName);
                     }
                     if (recordsArr.size() == 0)
@@ -215,23 +218,32 @@
                 Connection connection = null;
                 try {
                     // Step 1: "Load" the JDBC driver
-                    Class.forName("com.imaginary.sql.msql.MsqlDriver");
+                    //Class.forName("com.imaginary.sql.msql.MsqlDriver");
+                    try {
+
+                        Class.forName("org.postgresql.Driver");
+
+                    } catch (ClassNotFoundException e) {
+
+                        System.out.println("Where is your PostgreSQL JDBC Driver? "
+                                + "Include in your library path!");
+                        e.printStackTrace();
+                        return null;
+
+                    }
 
                     Properties props = new Properties();
                     props.setProperty("user","sagdjsuxgvztxk");
                     props.setProperty("password","8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a");
-                    props.setProperty("ssl","true");
-                    props.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
 
                     // Step 2: Establish the connection to the database
-                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q";
+                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q?sslmode=require&user=sagdjsuxgvztxk&password=8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a";
 
-                    connection = DriverManager.getConnection(url,props);
+                    connection = DriverManager.getConnection(url);
 
                 }
-                catch (Exception e)
-                {
-                    System.err.println("D'oh! Got an exception!");
+                catch (Exception e) {
+                    System.err.println("Database connection failed");
                     System.err.println(e.getMessage());
                 }
 

@@ -10,7 +10,7 @@
 <!DOCTYPE HTML>
 <html lang="it" dir="ltr">
     <head>
-        <title>AssetCopier</title>
+        <title>Get Advertisment</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="formstyle.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
                             }
                             if (email != null && password != null){
                                 //Faccio il login
-                                authenticationParser(request, response, email, password);
+                                authenticationParser(request, response, email, password, action);
                             }
                         }
                     }catch (NullPointerException e){
@@ -125,7 +125,7 @@
                         e.printStackTrace();
                     }
 
-                    authenticationParser(request, response, email, password);
+                    authenticationParser(request, response, email, password, action);
 
 
 
@@ -144,10 +144,11 @@
              * @param request HttpServletRequest
              * @param response HttpServletResponse
              * @param email String
+             * @param action int
              * @param password String
              */
             private static void authenticationParser(HttpServletRequest request, HttpServletResponse response,
-                                                     String email, String password){
+                                                     String email, String password, int action){
 
                 try {
                     //Mi connetto al db
@@ -163,19 +164,20 @@
                                 case 0:
                                     //Login succesfully done
 
-                                    //Salvo i cookie
-                                    try {
-                                        Cookie emailCk = new Cookie("email", email);
-                                        Cookie passwordCk = new Cookie("password", password);
+                                    //Salvo i cookie se action = 1
+                                    if (action == 1) {
+                                        try {
+                                            Cookie emailCk = new Cookie("email", email);
+                                            Cookie passwordCk = new Cookie("password", password);
 
-                                        response.addCookie(emailCk);
-                                        response.addCookie(passwordCk);
-                                    }catch (Exception e){
-                                        e.printStackTrace();
+                                            response.addCookie(emailCk);
+                                            response.addCookie(passwordCk);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
                                     }
 
-
-                                    //redirect nella area personale
+                                    //Redirect nella area personale
                                     RequestDispatcher dispatcher;
                                     dispatcher = request.getRequestDispatcher("uids_dashboard.jsp?email=" + email +
                                             "&password=" + password);

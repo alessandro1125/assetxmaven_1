@@ -25,7 +25,7 @@
                     message = request.getParameter("message");
                     //Stampo il message
                     %>
-                        <div class="form-style-8"><%= message %></div>
+                        <p class="form-style-8"><%= message %></p>
                     <%
                 }catch (NullPointerException e){
                     e.printStackTrace();
@@ -55,7 +55,7 @@
                     <input type="submit" value="Login">
                 </form>
                 <form action="create_account.jsp" method="get">
-                    <input type="submit" value="Create Account">
+                    <input type="submit" value="Sign Ins">
                 </form>
                 </form>
                 <form action="reset_password.jsp" method="get">
@@ -71,8 +71,7 @@
                     break;
                 case 1:
 
-                    Connection connection = getConnection();
-                    String result = connection.getCatalog();
+                    Connection connection = getConnectionHeroku();
 
                     //Faccio il login
                     HashMap<String, Object> map = new HashMap();
@@ -91,10 +90,13 @@
 
                     //String[] res = selectSql(connection, "attivo", "users");
 
+                    try {
+                        connection.close();
+                    }catch (SQLException e){
+                        e.printStackTrace();
+                    }
 
-                    connection.close();
-
-                        %><p><%= result%><br></p><%
+                        %><p><%= connection%><br></p><%
 
 
                 break;
@@ -217,8 +219,6 @@
 
                 Connection connection = null;
                 try {
-                    // Step 1: "Load" the JDBC driver
-                    //Class.forName("com.imaginary.sql.msql.MsqlDriver")
 
                     try {
 
@@ -233,7 +233,6 @@
 
                     }
 
-                    // Step 2: Establish the connection to the database
                     String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/" +
                             "d2qht4msggj59q?" +
                             "sslmode=require&user=sagdjsuxgvztxk&" +

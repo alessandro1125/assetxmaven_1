@@ -25,7 +25,7 @@
                     message = request.getParameter("message");
                     //Stampo il message
                     %>
-                        <div class="form-style-8"><%= message %></div>
+                        <p class="form-style-8"><%= message %></p>
                     <%
                 }catch (NullPointerException e){
                     e.printStackTrace();
@@ -55,7 +55,7 @@
                     <input type="submit" value="Login">
                 </form>
                 <form action="create_account.jsp" method="get">
-                    <input type="submit" value="Create Account">
+                    <input type="submit" value="Sign Ins">
                 </form>
                 </form>
                 <form action="reset_password.jsp" method="get">

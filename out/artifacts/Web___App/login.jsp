@@ -5,6 +5,7 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Properties" %>
 <%@ page import="java.util.Base64" %>
+<%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html lang="it" dir="ltr">
@@ -85,31 +86,76 @@
                 case 1:
 
                     //FACCIO IL LOGIN
+
+                    String email = null;
+                    String password = null;
+
+                    try{
+                        email = request.getParameter("email");
+                        password = request.getParameter("password");
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                     //Mi connetto al db
-                    Connection connection = null;
-                    //connection = getConnectionHeroku();
+                    Connection connection;
+                    connection = getConnectionHeroku();
 
-                    //if(connection != null){
-                    if(false){
+                    if(connection != null){
+                        if(email != null  && password != null){
+
+                            //Cerco la corrispondenza nella tabella users
+
+                            switch (authenticateUser(connection, email, password)){
+                                case 0:
+                                    //Login succesfully done
+                                    //Invio un messaggio all'utente
+                                    errorOccurred(response, "Login effettuato correttamente");
+                                    break;
+
+                                case 1:
+                                    //Email Wrong
+                                    System.out.println("User email not found");
+                                    //Invio un messaggio all'utente
+                                    errorOccurred(response, "User doesn't exist");
+                                    break;
+
+                                case 2:
+                                    //Password wrong
+                                    System.out.println("User password not correct");
+                                    //Invio un messaggio all'utente
+                                    errorOccurred(response, "Password wrong");
+                                    break;
+                                default:
+
+                            }
 
 
+                            /*
+                            HashMap<String, Object> map = new HashMap();
+                            map.put("email", "user1@gmail.com");
+                            map.put("password", "password11252220");
+                            map.put("nome", "user1@gmail.com");
+                            map.put("cognome", "user1@gmail.com");
+                            map.put("anno", "user1@gmail.com");
+                            map.put("mese", "user1@gmail.com");
+                            map.put("giorno", "user1@gmail.com");
+                            map.put("attivo", "1");
+                            map.put("passkey", "0");
+                            map.put("devices_uid", "0");*/
 
-                        /*
-                        HashMap<String, Object> map = new HashMap();
-                        map.put("email", "user1@gmail.com");
-                        map.put("password", "password11252220");
-                        map.put("nome", "user1@gmail.com");
-                        map.put("cognome", "user1@gmail.com");
-                        map.put("anno", "user1@gmail.com");
-                        map.put("mese", "user1@gmail.com");
-                        map.put("giorno", "user1@gmail.com");
-                        map.put("attivo", "1");
-                        map.put("passkey", "0");
-                        map.put("devices_uid", "0");*/
+                            //addSql(connection , map, "users");
 
-                        //addSql(connection , map, "users");
+                            //String[] res = selectSql(connection, "attivo", "users");
 
-                        //String[] res = selectSql(connection, "attivo", "users");
+                            %><p><%= connection.toString()%><br></p><%
+
+                        }else {
+                            //Se uno e entrambi i cambi sono nulli
+                            System.out.println("Parameters are not valid");
+                            //Invio un messaggio all'utente
+                            errorOccurred(response, "Enter valids parameters");
+                        }
 
                         try {
                             connection.close();
@@ -117,13 +163,11 @@
                             e.printStackTrace();
                         }
 
-                            %><p><%= connection%><br></p><%
                     }else {
                         //Se fallisce la connessione al database
                         System.out.println("Unable to connect to database");
-                        byte[] messageBy = Base64.getEncoder().encode("Unable to connect to database".getBytes());
-                        String redirectURL = "login.jsp?action=0&message=" + new String(messageBy);
-                        response.sendRedirect(redirectURL);
+                        //Invio un messaggio all'utente
+                        errorOccurred(response, "An error has occurred");
                     }
 
                 break;
@@ -135,36 +179,97 @@
 
 
         <%!
+            /**
+             *
+             * @param httpSerletResponse HttpServletResponse
+             * @param message String
+             */
+            private static void errorOccurred(HttpServletResponse httpSerletResponse, String message){
+                byte[] messageBy = Base64.getEncoder().encode(message.getBytes());
+                String redirectURL = "login.jsp?action=0&message=" + new String(messageBy);
+                try {
+                    httpSerletResponse.sendRedirect(redirectURL);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
+            /**
+             *
+             * @param connection Connection
+             * @param email String
+             * @param password String
+             * @return int
+             */
+            private static int authenticateUser(Connection connection, String email, String password){
+
+                Statement statement;
+                String query;
+
+                query = "SELECT email,password FROM users";
+
+                try{
+                    statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery(query);
+
+                    boolean emailFounded = false;
+                    boolean passwordFounded = false;
+                    while (resultSet.next()){
+                        //Controllo corrispondenze
+                        if (resultSet.getString("email").equals(email))
+                            emailFounded = true;
+                        if (emailFounded && resultSet.getString("password").equals(password))
+                            passwordFounded = true;
+                    }
+                    //Genero output
+                    if (!emailFounded)
+                        return 1;
+                    if (!passwordFounded)
+                        return 2;
+                    return 0;
+
+
+                }catch (SQLException sqle){
+                    sqle.printStackTrace();
+                    return -1;
+                }
+
+            }
 
             /**
              * Select from SQL database
-             * @param name
-             * @param table
-             * @return
+             * @param names ArrayList<String>
+             * @param table String
+             * @return ArrayList<Hashmap<String, String>>
              */
-            private static String[] selectSql(Connection connection, String name, String table){
+            private static ArrayList<HashMap<String, String>> selectSql(Connection connection, ArrayList<String> names, String table){
 
-                String result[];
-                ArrayList<String> recordsArr = new ArrayList();
                 Statement stmt;
+                ArrayList<HashMap<String, String>> result = new ArrayList();
+                String queryNames;
+                StringBuilder namesBuilder = new StringBuilder();
+                for (int i = 0; i < names.size(); i++){
+                    if(i < names.size()-1)
+                        namesBuilder.append(names.get(i)).append(", ");
+                    namesBuilder.append(names.get(i));
+                }
+                queryNames = namesBuilder.toString();
 
-                String query = "SELECT "+ name + " FROM " + table;//TODO più names
+                String query = "SELECT "+ queryNames + " FROM " + table;//TODO più names
 
                 try {
                     stmt = connection.createStatement();
 
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next()) {
-                        String lastName = rs.getString(name);
-                        recordsArr.add(lastName);
+                        HashMap<String, String> tmpRes = new HashMap();
+                        for (String key : names){
+                            tmpRes.put(key, rs.getString(key));
+                        }
+                        result.add(tmpRes);
                     }
-                    if (recordsArr.size() == 0)
+                    if (result.size() == 0)
                         return null;
-
-                    result = new String[recordsArr.size()];
-                    for (int i = 0; i < recordsArr.size(); i++)
-                        result[i] = recordsArr.get(i);
 
                     stmt.close();
 
@@ -178,8 +283,10 @@
             }
 
             /**
-             * Add SQL records to SQL database
-             * @return
+             *
+             * @param connection Connection
+             * @param record HashMap<String, Object>
+             * @param table String
              */
             private void addSql(Connection connection, HashMap<String, Object> record, String table){
 
@@ -220,7 +327,7 @@
 
             /**
              * Metodo per la connessione al database locale Heroku
-             * @return
+             * @return Connection
              */
             private static Connection getConnectionHeroku(){
                 try {
@@ -242,6 +349,10 @@
                 return null;
             }
 
+            /**
+             *
+             * @return Connection
+             */
             private static Connection getConnection(){
 
                 Connection connection = null;

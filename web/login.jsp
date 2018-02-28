@@ -109,8 +109,11 @@
                             switch (authenticateUser(connection, email, password)){
                                 case 0:
                                     //Login succesfully done
-                                    //Invio un messaggio all'utente
-                                    errorOccurred(response, "Login effettuato correttamente");
+                                    //redirect nella area personale
+                                    RequestDispatcher dispatcher;
+                                    dispatcher = request.getRequestDispatcher("uids_dashboard.jsp?email=" + email +
+                                            "&password=" + password);
+                                    dispatcher.forward(request, response);
                                     break;
 
                                 case 1:

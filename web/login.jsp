@@ -227,13 +227,12 @@
 
 
                     // Step 2: Establish the connection to the database
-                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q?sslmode=require";
+                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q?sslmode=require&user=sagdjsuxgvztxk&password=8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a";
 
-                    connection = DriverManager.getConnection(url,props);
+                    connection = DriverManager.getConnection(url);
 
                 }
-                catch (Exception e)
-                {
+                catch (Exception e) {
                     System.err.println("D'oh! Got an exception!");
                     System.err.println(e.getMessage());
                 }

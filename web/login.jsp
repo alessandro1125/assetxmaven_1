@@ -82,7 +82,6 @@
                         e.printStackTrace();
                     }
 
-
                     //Mostro il form per il login
 
                     %>
@@ -163,8 +162,20 @@
                             switch (authenticateUser(connection, email, password)) {
                                 case 0:
                                     //Login succesfully done
-                                    //redirect nella area personale
 
+                                    //Salvo i cookie
+                                    try {
+                                        Cookie emailCk = new Cookie("email", email);
+                                        Cookie passwordCk = new Cookie("password", password);
+
+                                        response.addCookie(emailCk);
+                                        response.addCookie(passwordCk);
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+
+
+                                    //redirect nella area personale
                                     RequestDispatcher dispatcher;
                                     dispatcher = request.getRequestDispatcher("uids_dashboard.jsp?email=" + email +
                                             "&password=" + password);

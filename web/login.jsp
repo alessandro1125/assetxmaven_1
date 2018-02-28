@@ -72,6 +72,7 @@
                 case 1:
 
                     Connection connection = getConnectionHeroku();
+                    String result = connection.getCatalog();
 
                     //Faccio il login
                     HashMap<String, Object> map = new HashMap();
@@ -88,11 +89,10 @@
 
                     //addSql(connection , map, "users");
 
-                    String[] res = selectSql(connection, "attivo", "users");
-                    
-                    for (String string : res){
+                    //String[] res = selectSql(connection, "attivo", "users");
+
                         %><p><%= string%><br></p><%
-                    }
+
 
                 break;
             }

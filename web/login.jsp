@@ -71,7 +71,7 @@
                     break;
                 case 1:
 
-                    Connection connection = getConnectionHeroku();
+                    Connection connection = getConnection();
                     String result = connection.getCatalog();
 
                     //Faccio il login
@@ -93,7 +93,7 @@
 
 
                     connection.close();
-                    
+
                         %><p><%= result%><br></p><%
 
 
@@ -220,14 +220,14 @@
                     // Step 1: "Load" the JDBC driver
                     Class.forName("com.imaginary.sql.msql.MsqlDriver");
 
+
                     Properties props = new Properties();
                     props.setProperty("user","sagdjsuxgvztxk");
                     props.setProperty("password","8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a");
-                    props.setProperty("ssl","true");
-                    props.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
+
 
                     // Step 2: Establish the connection to the database
-                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q";
+                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/d2qht4msggj59q?sslmode=require";
 
                     connection = DriverManager.getConnection(url,props);
 

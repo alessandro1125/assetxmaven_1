@@ -243,12 +243,15 @@
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
                     if(sendEmail(email, passkey)){
                         //Se l'email è stata inviata correttamente salvo l'utente nel database
-                    %>
-        <br>
-        <div class="form-style-8">
-            <h2>Ceck your email box to confirm your account</h2>
-        </div>
-                    <%
+
+
+                        //Stampo la risposta
+                        %>
+            <br>
+            <div class="form-style-8">
+                <h2>Ceck your email box to confirm your account</h2>
+            </div>
+                        <%
                     }
 
 
@@ -269,7 +272,7 @@
                 String from = "alessandrogiordano.assetx@gmail.com";
 
                 // Assuming you are sending email from localhost
-                String host = "getadvertisment.herokuapp.com";
+                String host = "smtp.gmail.com";
 
                 // Get system properties
                 Properties properties = System.getProperties();
@@ -277,12 +280,17 @@
                 // Setup mail server
                 properties.setProperty("mail.smtp.host", host);
 
+                properties.put("mail.smtp.starttls.enable", "true");
+                properties.put("mail.smtp.port", "587");
+
                 // Get the default Session object.
                 Session session = Session.getDefaultInstance(properties);
 
                 try {
                     // Create a default MimeMessage object.
                     MimeMessage message = new MimeMessage(session);
+
+
 
                     // Set From: header field of the header.
                     message.setFrom(new InternetAddress(from));
@@ -298,7 +306,9 @@
                             "url?passkey=" + passkey);
 
                     // Send message
-                    Transport.send(message);
+                    Transport transport = session.getTransport("smtp");
+                    transport.connect("alessandrogiordano.assetx@gmail.com", "assetX1125");
+                    transport.sendMessage(message, message.getAllRecipients());
                     return true;
                 } catch (MessagingException mex) {
                     mex.printStackTrace();

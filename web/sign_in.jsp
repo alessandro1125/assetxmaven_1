@@ -1,11 +1,8 @@
-<%@ page import="java.util.Date" %>
-<%@ page import="java.util.Calendar" %><%--
-  Created by IntelliJ IDEA.
-  User: aless
-  Date: 28/02/2018
-  Time: 20:33
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="javax.mail.*" %>
+<%@ page import="javax.mail.internet.*" %>
+<%@ page import="javax.activation.*" %>
+<%@ page import="java.util.Properties" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -219,15 +216,94 @@
                     break;
                 case 1:
                     //Registro l'account e invio l'email di conferma
+
+                    //Scarico i parametri dell'account
+                    String email = null;
+                    String password = null;
+                    String name = null;
+                    String surname = null;
+                    String anno = null;
+                    String mese = null;
+                    String giorno = null;
+                    try{
+                        email = request.getParameter("email");
+                        password = request.getParameter("password");
+                        name = request.getParameter("nome");
+                        surname = request.getParameter("cognome");
+                        anno = request.getParameter("anno");
+                        mese = request.getParameter("mese");
+                        giorno = request.getParameter("giorno");
+                    }catch (NullPointerException e){;
+                        e.printStackTrace();
+                        String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                        response.sendRedirect(redirectURL);
+                    }
+
+                    double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
+                    String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
+                    if(sendEmail(passkey, email)){
+                        //Se l'email è stata inviata correttamente salvo l'utente nel database
+
+                    }
+
                     %>
         <br>
         <div class="form-style-8">
             <h2>Ceck your email box to confirm your account</h2>
+        </div>
                     <%
                     break;
                 default:
                     response.sendRedirect("index.jsp?action=0");
                     break;
+            }
+
+
+        %>
+
+        <%!
+
+            private static boolean sendEmail(String email, String passkey){
+
+                // Sender's email ID needs to be mentioned
+                String from = "alessandrogiordano.assetx@gmail.com";
+
+                // Assuming you are sending email from localhost
+                String host = "getadvertisment.herokuapp.com";
+
+                // Get system properties
+                Properties properties = System.getProperties();
+
+                // Setup mail server
+                properties.setProperty("mail.smtp.host", host);
+
+                // Get the default Session object.
+                Session session = Session.getDefaultInstance(properties);
+
+                try {
+                    // Create a default MimeMessage object.
+                    MimeMessage message = new MimeMessage(session);
+
+                    // Set From: header field of the header.
+                    message.setFrom(new InternetAddress(from));
+
+                    // Set To: header field of the header.
+                    message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+
+                    // Set Subject: header field
+                    message.setSubject("User Confimation");
+
+                    // Now set the actual message
+                    message.setText("To confirm your Get Advertisment Account click to the following link: " +
+                            "url?passkey=" + passkey);
+
+                    // Send message
+                    Transport.send(message);
+                    return true;
+                } catch (MessagingException mex) {
+                    mex.printStackTrace();
+                    return false;
+                }
             }
 
 

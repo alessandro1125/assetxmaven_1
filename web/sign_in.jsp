@@ -5,6 +5,8 @@
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -241,9 +243,11 @@
                     double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
 
+                    String passkeyUrlEncoded = URLEncoder.encode(passkey, "UTF-8");
+                    String emailUrlEncoded = URLEncoder.encode(email, "UTF-8");
                     String text = "To confirm your Get Advertisment Account click to the following link: " +
-                            "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkey
-                            + "&email=" + email;
+                            "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkeyUrlEncoded
+                            + "&email=" + emailUrlEncoded;
                     if(sendEmail(email, text)){
 
                         //Se l'email è stata inviata correttamente salvo l'utente nel database
@@ -331,8 +335,8 @@
                     String passkeyFrom = null;
                     String emailFrom = null;
                     try {
-                        passkeyFrom = request.getParameter("passkey");
-                        emailFrom = request.getParameter("email");
+                        passkeyFrom = URLDecoder.decode(request.getParameter("passkey"), "UTF-8");
+                        emailFrom = URLDecoder.decode(request.getParameter("email"), "UTF-8");
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nella recezione della passkey " + ERROR_CODE_PAGE + "x05");
@@ -422,7 +426,7 @@
                         //Invio la passkey per email
                         String textPass = "To change your password please click on this link: " +
                                 "https://getadvertisment.herokuapp.com/sign_in.jsp?action=5&email="+
-                                emailPass + "&passkey=" + passkeyPass;
+                                URLEncoder.encode(emailPass, "UTF-8") + "&passkey=" + URLEncoder.encode(passkeyPass, "UTF-8");
                         if(sendEmail(emailPass, textPass)){
                             //Aggiorno il database
                             if (updatePasskey(connectionPass, emailPass, passkeyPass)){
@@ -470,7 +474,7 @@
                             e.printStackTrace();
                         }
                         String redirectURL = "login.jsp?action=0&message=" +
-                                new String(Base64.getEncoder().encode(("User doesn't sactivated").getBytes()));
+                                new String(Base64.getEncoder().encode(("User is not activated").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
 
@@ -480,6 +484,8 @@
 
                 case 5:
                     //Reimposto la password
+
+                    //Scarico e decodifico i parametri url
 
                     break;
 

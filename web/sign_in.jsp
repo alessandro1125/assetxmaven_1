@@ -216,7 +216,7 @@
 
                     <%
 
-
+                    break;
                 case 1:
                     //Registro l'account e invio l'email di conferma
                     %>

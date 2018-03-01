@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="98" column="37" lean-forward="false" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
+            <state relative-caret-position="442">
+              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding>
                 <marker date="1519904764099" expanded="true" signature="10976:10989" ph="SELECT email... " />
                 <marker date="1519904764099" expanded="true" signature="10976:11008" ph="SELECT email... users" />
@@ -102,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sign_in.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sign_in.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="221" column="22" lean-forward="true" selection-start-line="221" selection-start-column="22" selection-end-line="221" selection-end-column="22" />
+            <state relative-caret-position="3687">
+              <caret line="218" column="26" lean-forward="true" selection-start-line="218" selection-start-column="26" selection-end-line="218" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -175,8 +175,8 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/uids_dashboard.jsp" />
         <option value="$PROJECT_DIR$/web/uids_dashboard.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/web/sign_in.jsp" />
         <option value="$PROJECT_DIR$/web/login.jsp" />
+        <option value="$PROJECT_DIR$/web/sign_in.jsp" />
       </list>
     </option>
   </component>
@@ -477,12 +477,12 @@
       <workItem from="1519768820577" duration="806000" />
       <workItem from="1519813703137" duration="10653000" />
       <workItem from="1519837451479" duration="9619000" />
-      <workItem from="1519896378311" duration="8211000" />
+      <workItem from="1519896378311" duration="8341000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60354000" />
+    <option name="totallyTimeSpent" value="60484000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -539,7 +539,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1096,10 +1096,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding>
+            <marker date="1519904764099" expanded="true" signature="10976:10989" ph="SELECT email... " />
+            <marker date="1519904764099" expanded="true" signature="10976:11008" ph="SELECT email... users" />
+            <marker date="1519904764099" expanded="true" signature="12916:12923" ph="SELECT missi... " />
+            <marker date="1519904764099" expanded="true" signature="12916:12945" ph="SELECT missi... missingValue" />
+            <marker date="1519904764099" expanded="true" signature="12916:12946" ph="SELECT missi... missingValue" />
+            <marker date="1519904764099" expanded="true" signature="12916:12955" ph="SELECT + FRO... users" />
+            <marker date="1519904764099" expanded="true" signature="15059:15071" ph="INSERT INTO missingValue... " />
+            <marker date="1519904764099" expanded="true" signature="15059:15086" ph="INSERT INTO missingValue... " />
+            <marker date="1519904764099" expanded="true" signature="15059:15137" ph="INSERT INTO missingValue... " />
+            <marker date="1519904764099" expanded="true" signature="15059:15152" ph="INSERT INTO users... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="221" column="22" lean-forward="true" selection-start-line="221" selection-start-column="22" selection-end-line="221" selection-end-column="22" />
+        <state relative-caret-position="3687">
+          <caret line="218" column="26" lean-forward="true" selection-start-line="218" selection-start-column="26" selection-end-line="218" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1112,25 +1131,6 @@
             <element signature="n#style#0;n#select#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#5;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="98" column="37" lean-forward="false" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
-          <folding>
-            <marker date="1519904764099" expanded="true" signature="10976:10989" ph="SELECT email... " />
-            <marker date="1519904764099" expanded="true" signature="10976:11008" ph="SELECT email... users" />
-            <marker date="1519904764099" expanded="true" signature="12916:12923" ph="SELECT missi... " />
-            <marker date="1519904764099" expanded="true" signature="12916:12945" ph="SELECT missi... missingValue" />
-            <marker date="1519904764099" expanded="true" signature="12916:12946" ph="SELECT missi... missingValue" />
-            <marker date="1519904764099" expanded="true" signature="12916:12955" ph="SELECT + FRO... users" />
-            <marker date="1519904764099" expanded="true" signature="15059:15071" ph="INSERT INTO missingValue... " />
-            <marker date="1519904764099" expanded="true" signature="15059:15086" ph="INSERT INTO missingValue... " />
-            <marker date="1519904764099" expanded="true" signature="15059:15137" ph="INSERT INTO missingValue... " />
-            <marker date="1519904764099" expanded="true" signature="15059:15152" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>

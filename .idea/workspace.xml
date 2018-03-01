@@ -105,10 +105,10 @@
       <file leaf-file-name="sign_in.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="283" column="69" lean-forward="false" selection-start-line="283" selection-start-column="69" selection-end-line="283" selection-end-column="69" />
+            <state relative-caret-position="257">
+              <caret line="297" column="103" lean-forward="false" selection-start-line="297" selection-start-column="103" selection-end-line="297" selection-end-column="103" />
               <folding>
-                <marker date="1519915167975" expanded="true" signature="16957:17050" ph="INSERT INTO missingValue... " />
+                <marker date="1519915509334" expanded="true" signature="17187:17280" ph="INSERT INTO missingValue... " />
               </folding>
             </state>
           </provider>
@@ -478,12 +478,12 @@
       <workItem from="1519813703137" duration="10653000" />
       <workItem from="1519837451479" duration="9619000" />
       <workItem from="1519896378311" duration="12397000" />
-      <workItem from="1519912830158" duration="2328000" />
+      <workItem from="1519912830158" duration="2673000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66868000" />
+    <option name="totallyTimeSpent" value="67213000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -611,7 +611,7 @@
         <state relative-caret-position="4199">
           <caret line="247" column="44" lean-forward="false" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
           <folding>
-            <marker date="1519915167975" expanded="true" signature="16957:17050" ph="INSERT INTO missingValue... " />
+            <marker date="1519915509334" expanded="true" signature="17187:17280" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>
@@ -674,7 +674,7 @@
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1519915167975" expanded="true" signature="16957:17050" ph="INSERT INTO missingValue... " />
+            <marker date="1519915509334" expanded="true" signature="17187:17280" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>
@@ -1179,10 +1179,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="283" column="69" lean-forward="false" selection-start-line="283" selection-start-column="69" selection-end-line="283" selection-end-column="69" />
+        <state relative-caret-position="257">
+          <caret line="297" column="103" lean-forward="false" selection-start-line="297" selection-start-column="103" selection-end-line="297" selection-end-column="103" />
           <folding>
-            <marker date="1519915167975" expanded="true" signature="16957:17050" ph="INSERT INTO missingValue... " />
+            <marker date="1519915509334" expanded="true" signature="17187:17280" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>

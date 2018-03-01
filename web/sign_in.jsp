@@ -281,7 +281,8 @@
                                             ERROR_CODE_PAGE + "x02").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
-                        if(addSql(connection , map, "users", response)){
+                        if(false){
+                        //if(addSql(connection , map, "users")){
 
                             //Stampo la risposta
                             %>
@@ -294,7 +295,7 @@
                             System.out.println("Errore nella scrittura nel database");
                             String redirectURL = "login.jsp?action=0&message=" +
                                     new String(Base64.getEncoder().encode(("An error has occurred " +
-                                            ERROR_CODE_PAGE + "x03").getBytes()));
+                                            ERROR_CODE_PAGE + "x03\n"+addSql(connection , map, "users")).getBytes()));
                             response.sendRedirect(redirectURL);
                         }
                     }else {
@@ -324,7 +325,14 @@
 
         <%!
 
-            private boolean addSql(Connection connection, HashMap<String, Object> record, String table, HttpServletResponse response) throws IOException {
+            /**
+             *
+             * @param connection Connection
+             * @param record HashMap<String, Object>
+             * @param table Stirng
+             * @return boolean
+             */
+            private static String addSql(Connection connection, HashMap<String, Object> record, String table) {
 
                 Statement stmt;
                 String keys, values;
@@ -354,15 +362,11 @@
                     stmt = connection.createStatement();
                     stmt.executeQuery(query);
                     stmt.close();
-                    return true;
+                    return "";
                 }catch (SQLException e) {
                     e.printStackTrace();
                     System.out.println(e.toString());
-                    String redirectURL = "login.jsp?action=0&message=" +
-                            new String(Base64.getEncoder().encode(("An error has occurred " +
-                                    ERROR_CODE_PAGE + "x03\n"+e.toString()).getBytes()));
-                    response.sendRedirect(redirectURL);
-                    return false;
+                    return e.toString();
                 }
             }
 

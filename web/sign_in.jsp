@@ -8,6 +8,7 @@
 <%@ page import="java.net.URI" %>
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.util.*" %>
+<%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -245,7 +246,7 @@
                     }catch (NullPointerException e){;
                         e.printStackTrace();
                         String redirectURL = "login.jsp?action=0&message=" +
-                                new String(Base64.getEncoder().encode(("An error has occurred" +
+                                new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x01").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
@@ -266,7 +267,7 @@
                         map.put("giorno", giorno);
                         map.put("attivo", "0");
                         map.put("passkey", passkey);
-                        map.put("devices_uid", "");
+                        map.put("devices_uid", "0");
 
                         Connection connection = null;
 
@@ -276,11 +277,11 @@
                             e.printStackTrace();
                             System.out.println("Errore nella connessione con il batabase");
                             String redirectURL = "login.jsp?action=0&message=" +
-                                    new String(Base64.getEncoder().encode(("An error has occurred" +
+                                    new String(Base64.getEncoder().encode(("An error has occurred " +
                                             ERROR_CODE_PAGE + "x02").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
-                        if(addSql(connection , map, "users")){
+                        if(addSql(connection , map, "users", response)){
 
                             //Stampo la risposta
                             %>
@@ -292,14 +293,14 @@
                         }else {
                             System.out.println("Errore nella scrittura nel database");
                             String redirectURL = "login.jsp?action=0&message=" +
-                                    new String(Base64.getEncoder().encode(("An error has occurred" +
+                                    new String(Base64.getEncoder().encode(("An error has occurred " +
                                             ERROR_CODE_PAGE + "x03").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
                     }else {
                         System.out.println("Errore nell'invio dell'email di conferma");
                         String redirectURL = "login.jsp?action=0&message=" +
-                                new String(Base64.getEncoder().encode(("An error has occurred" +
+                                new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x04").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
@@ -323,7 +324,7 @@
 
         <%!
 
-            private boolean addSql(Connection connection, HashMap<String, Object> record, String table){
+            private boolean addSql(Connection connection, HashMap<String, Object> record, String table, HttpServletResponse response) throws IOException {
 
                 Statement stmt;
                 String keys, values;
@@ -357,6 +358,10 @@
                 }catch (SQLException e) {
                     e.printStackTrace();
                     System.out.println(e.toString());
+                    String redirectURL = "login.jsp?action=0&message=" +
+                            new String(Base64.getEncoder().encode(("An error has occurred " +
+                                    ERROR_CODE_PAGE + "x03\n"+e.toString()).getBytes()));
+                    response.sendRedirect(redirectURL);
                     return false;
                 }
             }

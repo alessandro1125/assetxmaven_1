@@ -335,8 +335,8 @@
                     String passkey2 = null;
                     String email2 = null;
                     try {
-                        passkey2 = URLDecoder.decode(new String(Base64.getDecoder().decode(request.getParameter("passkey"))), "UTF-8");
-                        email2 = URLDecoder.decode(new String(Base64.getDecoder().decode(request.getParameter("email"))), "UTF-8");
+                        passkey2 =  new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("passkey"), "UTF-8")));
+                        email2 =    new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("email"), "UTF-8")));
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nella recezione della passkey " + ERROR_CODE_PAGE + "x05");
@@ -492,10 +492,12 @@
                     String email5Encoded = null;
                     try{
                         email5Encoded = request.getParameter("email");
-                        email5 = URLDecoder.decode(new String(Base64.getDecoder().decode(email5Encoded)), "UTF-8");
-                        passkey5 = URLDecoder.decode(new String(Base64.getDecoder().decode(request.getParameter("passkey"))), "UTF-8");
+                        email5 =    new String(Base64.getDecoder().decode(URLDecoder.decode(email5Encoded, "UTF-8").getBytes()));
+                        passkey5 =  new String(Base64.getDecoder().decode(URLDecoder.decode
+                                (request.getParameter("passkey"), "UTF-8").getBytes()));
                     }catch (NullPointerException e){
                         e.printStackTrace();
+                        System.out.println("Error: " + ERROR_CODE_PAGE + "x11");
                         String redirectURL = "login.jsp?action=0&message=" +
                                 new String(Base64.getEncoder().encode(("An error has occurred"  +
                                         ERROR_CODE_PAGE + "x11").getBytes()));

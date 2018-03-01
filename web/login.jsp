@@ -96,7 +96,7 @@
                     <input type="password" name="password" placeholder="Your password..."/>
                     <input type="submit" value="Login">
                 </form>
-                <form action="sign_in.jsp.jsp" method="get">
+                <form action="sign_in.jsp" method="get">
                     <input type="submit" value="Sign In">
                 </form>
                 </form>

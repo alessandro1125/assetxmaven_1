@@ -694,9 +694,9 @@
                 String query;
 
                 query = "SELECT passkey FROM users WHERE email='" + email +"'";
-                System.out.println("starting query");
                 try{
                     statement = connection.createStatement();
+                    System.out.println("starting query");
                     ResultSet resultSet = statement.executeQuery(query);
 
                     if (resultSet != null){

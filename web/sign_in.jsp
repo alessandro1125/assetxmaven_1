@@ -4,7 +4,6 @@
 <%@ page import="java.net.URI" %>
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.util.*" %>
-<%@ page import="java.io.IOException" %>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -18,7 +17,7 @@
     <body dir="ltr" dir="ltr" style="text-align: center;background-color:white;font-family:sans-serif;font-weight:lighter;color:#595959;">
 
         <%!
-            public static final String ERROR_CODE_PAGE = "100";
+            private static final String ERROR_CODE_PAGE = "100";
         %>
 
         <%
@@ -53,8 +52,6 @@
                     <%
                         int year = Calendar.getInstance().get(Calendar.YEAR);
                         for (int i = 1900; i<= year; i++){
-
-
                     %>
                         <option value="<%= Integer.toString(i)%>"><%= Integer.toString(i)%></option>
                     <%
@@ -80,8 +77,6 @@
                 <select style="display: none" id="giorno" name="giorno">
                     <%
                         for (int i = 1; i<= 31; i++){
-
-
                     %>
                     <option value="<%= Integer.toString(i)%>"><%= Integer.toString(i)%></option>
                     <%
@@ -97,7 +92,6 @@
         <div class = "form-style-8" style="bottom:0px;left:20%;">
             Contacts:<blockquote> urimkuci.assetx@gmail.com<br>alessandrogiordano.assetx@gmail.com</blockquote>
         </div>
-
         <script type="application/javascript">
 
             var state = 0;
@@ -213,13 +207,9 @@
                         break;
                 }
             }
-
-
         </script>
 
-
                     <%
-
                     break;
                 case 1:
                     //Registro l'account e invio l'email di conferma
@@ -251,7 +241,10 @@
                     double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
 
-                    if(sendEmail(email, passkey)){
+                    String text = "To confirm your Get Advertisment Account click to the following link: " +
+                            "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkey
+                            + "&email=" + email;
+                    if(sendEmail(email, text)){
 
                         //Se l'email è stata inviata correttamente salvo l'utente nel database
                         HashMap<String, Object> map = new HashMap();
@@ -272,12 +265,12 @@
                             connection = getConnectionHeroku();
                         }catch (Exception e){
                             e.printStackTrace();
-                            System.out.println("Errore nella connessione con il batabase");
                             try {
                                 connection.close();
                             } catch (SQLException e1) {
                                 e1.printStackTrace();
                             }
+                            System.out.println("Errore nella connessione con il batabase " + ERROR_CODE_PAGE + "x02");
                             String redirectURL = "login.jsp?action=0&message=" +
                                     new String(Base64.getEncoder().encode(("An error has occurred " +
                                             ERROR_CODE_PAGE + "x02").getBytes()));
@@ -297,12 +290,12 @@
                 </div>
                                 <%
                             }else {
-                                System.out.println("Errore nella scrittura nel database");
                                 try {
                                     connection.close();
                                 } catch (SQLException e1) {
                                     e1.printStackTrace();
                                 }
+                                System.out.println("Errore nella scrittura nel database "+ ERROR_CODE_PAGE + "x03");
                                 String redirectURL = "login.jsp?action=0&message=" +
                                         new String(Base64.getEncoder().encode(("An error has occurred " +
                                                 ERROR_CODE_PAGE + "x03").getBytes()));
@@ -325,7 +318,7 @@
                             e1.printStackTrace();
                         }
                     }else {
-                        System.out.println("Errore nell'invio dell'email di conferma");
+                        System.out.println("Errore nell'invio dell'email di conferma " + ERROR_CODE_PAGE + "x04");
                         String redirectURL = "login.jsp?action=0&message=" +
                                 new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x04").getBytes()));
@@ -342,7 +335,7 @@
                         emailFrom = request.getParameter("email");
                     }catch (NullPointerException e){
                         e.printStackTrace();
-                        System.out.println("Errore nella recezione della passkey");
+                        System.out.println("Errore nella recezione della passkey " + ERROR_CODE_PAGE + "x05");
                         String redirectURL = "login.jsp?action=0&message=" +
                                 new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x05").getBytes()));
@@ -368,19 +361,19 @@
                             } catch (SQLException e1) {
                                 e1.printStackTrace();
                             }
-                            System.out.println("Errore nell'aggiornamento del database");
+                            System.out.println("Errore nell'aggiornamento del database " + ERROR_CODE_PAGE + "x07");
                             String redirectURL = "login.jsp?action=0&message=" +
                                     new String(Base64.getEncoder().encode(("An error has occurred " +
                                             ERROR_CODE_PAGE + "x07").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
                     }else {
-                        System.out.println("Errore nell'attivazione della passkey");
                         try {
                             connection.close();
                         } catch (SQLException e1) {
                             e1.printStackTrace();
                         }
+                        System.out.println("Errore nell'attivazione della passkey " + ERROR_CODE_PAGE + "x06");
                         String redirectURL = "login.jsp?action=0&message=" +
                                 new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x06").getBytes()));
@@ -389,6 +382,107 @@
 
 
                     break;
+
+                case 3:
+
+                    //Richiesta di resettare la password
+                    //Mostro il form per l'interimento dell'email
+
+                    %>
+        <div class="form-style-8">
+            <h2>Reset Password</h2>
+            <form class="form-style-8" action="sign_in.jsp?action=4">
+                <input type="email" name="email" placeholder="Enter your email...">
+                <input type="submit" name="submit">
+            </form>
+        </div>
+                    <%
+                    break;
+
+                case 4:
+                    String emailPass = null;
+                    try{
+                        emailPass = request.getParameter("email");
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
+                        System.out.println("Errore nel parametro " + ERROR_CODE_PAGE + "x08");
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred " +
+                                        ERROR_CODE_PAGE + "x08").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }
+
+                    //Controllo se l'utente è già stato attivato
+                    Connection connectionPass = getConnectionHeroku();
+                    if(searchUserAtivated(connectionPass, emailPass)){
+                        //Genero la passkey per la modifica password
+                        double passkeyPassDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
+                        String passkeyPass = Double.toString(passkeyPassDoub).substring(2,Double.toString(passkeyPassDoub).length());
+
+                        //Invio la passkey per email
+                        String textPass = "To change your password please click on this link: " +
+                                "https://getadvertisment.herokuapp.com/sign_in.jsp?action=5&email="+
+                                emailPass + "&passkey=" + passkeyPass;
+                        if(sendEmail(emailPass, textPass)){
+                            //Aggiorno il database
+                            if (updatePasskey(connectionPass, emailPass, passkeyPass)){
+                                //Stampo la risposta
+                                try {
+                                    connectionPass.close();
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                }
+                                %>
+        <br>
+        <div class="form-style-8">
+            <h2>Ceck your email box to reset your password</h2>
+        </div>
+                                <%
+                            }else {
+                                try {
+                                    connectionPass.close();
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                }
+                                System.out.println("Errore nell'aggiornamento del database" + ERROR_CODE_PAGE + "x10");
+                                String redirectURL = "login.jsp?action=0&message=" +
+                                        new String(Base64.getEncoder().encode(("An error has occurred " +
+                                                ERROR_CODE_PAGE + "x10").getBytes()));
+                                response.sendRedirect(redirectURL);
+                            }
+
+                        }else {
+                            try {
+                                connectionPass.close();
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            System.out.println("Errore nell'invio dell'email" + ERROR_CODE_PAGE + "x09");
+                            String redirectURL = "login.jsp?action=0&message=" +
+                                    new String(Base64.getEncoder().encode(("Cannot send Email " +
+                                            ERROR_CODE_PAGE + "x09").getBytes()));
+                            response.sendRedirect(redirectURL);
+                        }
+                    }else {
+                        try {
+                            connectionPass.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("User not already activated").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }
+
+
+
+                    break;
+
+                case 5:
+                    //Reimposto la password
+
+                    break;
+
                 default:
                     response.sendRedirect("index.jsp?action=0");
                     break;
@@ -398,6 +492,23 @@
         %>
 
         <%!
+
+            private static boolean updatePasskey(Connection connection, String email, String passkey){
+
+                Statement stmt;
+                String query = "UPDATE users SET passkey='" + passkey + "' WHERE email='" + email + "'";
+
+                try {
+                    stmt = connection.createStatement();
+                    stmt.executeUpdate(query);
+                    stmt.close();
+                    return true;
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                    System.out.println(e.toString());
+                    return false;
+                }
+            }
 
             /**
              *
@@ -530,6 +641,37 @@
             }
 
             /**
+             *
+             * @param connection Connection
+             * @param email String
+             * @return boolean
+             */
+            private static boolean searchUserAtivated(Connection connection, String email){
+
+                //Faccio una chiamata al db
+                Statement statement;
+                String query;
+
+                query = "SELECT email,attivo FROM users";
+
+                try{
+                    statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery(query);
+
+                    while (resultSet.next()){
+                        //Controllo corrispondenze
+                        if (resultSet.getString("email").equals(email) &&
+                                resultSet.getString("attivo").equals("1"))
+                            return true;
+                    }
+                    return false;
+                }catch (SQLException sqle){
+                    sqle.printStackTrace();
+                    return false;
+                }
+            }
+
+            /**
              * Metodo per la connessione al database locale Heroku
              * @return Connection
              */
@@ -595,10 +737,10 @@
             /**
              *
              * @param email String
-             * @param passkey String
+             * @param text String
              * @return boolean
              */
-            private static boolean sendEmail(String email, String passkey){
+            private static boolean sendEmail(String email, String text){
 
                 // Sender's email ID needs to be mentioned
                 String from = "alessandrogiordano.assetx@gmail.com";
@@ -634,9 +776,7 @@
                     message.setSubject("User Confimation");
 
                     // Now set the actual message
-                    message.setText("To confirm your Get Advertisment Account click to the following link: " +
-                            "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkey
-                            + "&email=" + email);
+                    message.setText(text);
 
                     // Send message
                     Transport transport = session.getTransport("smtp");

@@ -84,7 +84,7 @@
       <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1071">
+            <state relative-caret-position="-51">
               <caret line="201" column="48" lean-forward="false" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
               <folding>
                 <marker date="1519917232000" expanded="true" signature="10502:10515" ph="SELECT email... " />
@@ -105,18 +105,22 @@
       <file leaf-file-name="sign_in.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="455" column="100" lean-forward="false" selection-start-line="455" selection-start-column="100" selection-end-line="455" selection-end-column="100" />
+            <state relative-caret-position="252">
+              <caret line="427" column="87" lean-forward="true" selection-start-line="427" selection-start-column="87" selection-end-line="427" selection-end-column="87" />
               <folding>
-                <marker date="1519919345334" expanded="true" signature="21203:21296" ph="INSERT INTO missingValue... " />
-                <marker date="1519919345334" expanded="true" signature="22008:22025" ph="UPDATE users... " />
-                <marker date="1519919345334" expanded="true" signature="22008:22045" ph="UPDATE users... " />
-                <marker date="1519919345334" expanded="true" signature="22008:22046" ph="UPDATE users... " />
-                <marker date="1519919345334" expanded="true" signature="22008:22061" ph="UPDATE users... " />
-                <marker date="1519919345334" expanded="true" signature="22008:22062" ph="UPDATE users... " />
-                <marker date="1519919345334" expanded="true" signature="22008:22076" ph="UPDATE users... " />
-                <marker date="1519919345334" expanded="true" signature="22911:22942" ph="SELECT email... users" />
-                <marker date="1519919345334" expanded="true" signature="23985:24008" ph="SELECT email... users" />
+                <element signature="n#style#0;n#select#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1519922391186" expanded="true" signature="25326:25352" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="25326:25396" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="27128:27221" ph="INSERT INTO missingValue... " />
+                <marker date="1519922391186" expanded="true" signature="27933:27950" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="27933:27970" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="27933:27971" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="27933:27986" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="27933:27987" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="27933:28001" ph="UPDATE users... " />
+                <marker date="1519922391186" expanded="true" signature="28836:28867" ph="SELECT email... users" />
+                <marker date="1519922391186" expanded="true" signature="29910:29933" ph="SELECT email... users" />
+                <marker date="1519922391186" expanded="true" signature="30902:30932" ph="SELECT email... users" />
               </folding>
             </state>
           </provider>
@@ -154,6 +158,8 @@
         <option value="$PROJECT_DIR$/web/uids_dashboard.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/login.jsp" />
+        <option value="$PROJECT_DIR$/src/resources/strings.xml" />
+        <option value="$PROJECT_DIR$/src/resources/values/strings.xml" />
         <option value="$PROJECT_DIR$/web/sign_in.jsp" />
       </list>
     </option>
@@ -231,6 +237,11 @@
             <path>
               <item name="assetxmaven_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="assetxmaven_1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assetxmaven_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assetxmaven_1" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -262,6 +273,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Sync\Heroku Projects\GitHub\assetxmaven_1\src\resources\values" />
       <recent name="G:\Sync\Heroku Projects\GitHub\assetxmaven_1\web" />
     </key>
   </component>
@@ -456,12 +468,12 @@
       <workItem from="1519813703137" duration="10653000" />
       <workItem from="1519837451479" duration="9619000" />
       <workItem from="1519896378311" duration="12397000" />
-      <workItem from="1519912830158" duration="6517000" />
+      <workItem from="1519912830158" duration="9515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71057000" />
+    <option name="totallyTimeSpent" value="74055000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -523,24 +535,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding>
-            <marker date="1519754723902" expanded="true" signature="699:837" ph="INSERT INTO users... " />
-            <marker date="1519754723902" expanded="true" signature="699:915" ph="INSERT INTO users... " />
-            <marker date="1519754723902" expanded="true" signature="699:919" ph="INSERT INTO users... " />
-            <marker date="1519754723902" expanded="true" signature="1738:1756" ph="CREATE TABLE... users" />
-            <marker date="1519754723902" expanded="true" signature="1738:1758" ph="CREATE TABLE... users" />
-            <marker date="1519754723902" expanded="true" signature="1738:2370" ph="CREATE TABLE... orders" />
-            <marker date="1519754723902" expanded="true" signature="1738:2371" ph="CREATE TABLE... orders" />
-            <marker date="1519754723902" expanded="true" signature="3245:3268" ph="SELECT `emai... Users" />
-            <marker date="1519754723902" expanded="true" signature="4589:4616" ph="DELETE FROM `Users`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1921">
@@ -589,15 +583,19 @@
         <state relative-caret-position="4199">
           <caret line="247" column="44" lean-forward="false" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
           <folding>
-            <marker date="1519919345334" expanded="true" signature="21203:21296" ph="INSERT INTO missingValue... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22025" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22045" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22046" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22061" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22062" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22076" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22911:22942" ph="SELECT email... users" />
-            <marker date="1519919345334" expanded="true" signature="23985:24008" ph="SELECT email... users" />
+            <element signature="n#style#0;n#select#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1519922391186" expanded="true" signature="25326:25352" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="25326:25396" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27128:27221" ph="INSERT INTO missingValue... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27950" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27970" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27971" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27986" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27987" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:28001" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="28836:28867" ph="SELECT email... users" />
+            <marker date="1519922391186" expanded="true" signature="29910:29933" ph="SELECT email... users" />
+            <marker date="1519922391186" expanded="true" signature="30902:30932" ph="SELECT email... users" />
           </folding>
         </state>
       </provider>
@@ -660,15 +658,19 @@
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1519919345334" expanded="true" signature="21203:21296" ph="INSERT INTO missingValue... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22025" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22045" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22046" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22061" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22062" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22076" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22911:22942" ph="SELECT email... users" />
-            <marker date="1519919345334" expanded="true" signature="23985:24008" ph="SELECT email... users" />
+            <element signature="n#style#0;n#select#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1519922391186" expanded="true" signature="25326:25352" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="25326:25396" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27128:27221" ph="INSERT INTO missingValue... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27950" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27970" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27971" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27986" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27987" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:28001" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="28836:28867" ph="SELECT email... users" />
+            <marker date="1519922391186" expanded="true" signature="29910:29933" ph="SELECT email... users" />
+            <marker date="1519922391186" expanded="true" signature="30902:30932" ph="SELECT email... users" />
           </folding>
         </state>
       </provider>
@@ -1142,9 +1144,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="32" lean-forward="true" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="975" column="19" lean-forward="false" selection-start-line="975" selection-start-column="19" selection-end-line="975" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3ff7445a/45e79fdc-a5c1-4099-b503-c3f477cb4794/d2qht4msggj59q.public.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="ctid" enabled="false" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1071">
+        <state relative-caret-position="-51">
           <caret line="201" column="48" lean-forward="false" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
           <folding>
             <marker date="1519917232000" expanded="true" signature="10502:10515" ph="SELECT email... " />
@@ -1161,30 +1189,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3ff7445a/45e79fdc-a5c1-4099-b503-c3f477cb4794/d2qht4msggj59q.public.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="455" column="100" lean-forward="false" selection-start-line="455" selection-start-column="100" selection-end-line="455" selection-end-column="100" />
+        <state relative-caret-position="252">
+          <caret line="427" column="87" lean-forward="true" selection-start-line="427" selection-start-column="87" selection-end-line="427" selection-end-column="87" />
           <folding>
-            <marker date="1519919345334" expanded="true" signature="21203:21296" ph="INSERT INTO missingValue... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22025" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22045" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22046" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22061" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22062" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22008:22076" ph="UPDATE users... " />
-            <marker date="1519919345334" expanded="true" signature="22911:22942" ph="SELECT email... users" />
-            <marker date="1519919345334" expanded="true" signature="23985:24008" ph="SELECT email... users" />
+            <element signature="n#style#0;n#select#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1519922391186" expanded="true" signature="25326:25352" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="25326:25396" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27128:27221" ph="INSERT INTO missingValue... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27950" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27970" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27971" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27986" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:27987" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="27933:28001" ph="UPDATE users... " />
+            <marker date="1519922391186" expanded="true" signature="28836:28867" ph="SELECT email... users" />
+            <marker date="1519922391186" expanded="true" signature="29910:29933" ph="SELECT email... users" />
+            <marker date="1519922391186" expanded="true" signature="30902:30932" ph="SELECT email... users" />
           </folding>
         </state>
       </provider>

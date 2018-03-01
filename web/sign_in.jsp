@@ -252,8 +252,8 @@
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
 
                     if(sendEmail(email, passkey)){
-                        //Se l'email è stata inviata correttamente salvo l'utente nel database
 
+                        //Se l'email è stata inviata correttamente salvo l'utente nel database
                         HashMap<String, Object> map = new HashMap();
                         map.put("email", email);
                         map.put("password", password);
@@ -336,8 +336,10 @@
                 case 2:
                     //Eseguo l'attivazione dell'account
                     String passkeyFrom = null;
+                    String emailFrom = null;
                     try {
                         passkeyFrom = request.getParameter("passkey");
+                        emailFrom = request.getParameter("email");
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nella recezione della passkey");
@@ -349,20 +351,31 @@
 
                     //Controllo se la passkey è corretta
                     Connection connection = getConnectionHeroku();
-                    if (checkPasskey(connection, passkeyFrom)){
+                    if (checkPasskey(connection, passkeyFrom, emailFrom)){
                         //Aggiorno lo stato di attivazione e cancello la passkey
-
-
-                        try {
-                            connection.close();
-                        } catch (SQLException e1) {
-                            e1.printStackTrace();
+                        if(updateActivtion(connection, passkeyFrom, emailFrom)) {
+                            try {
+                                connection.close();
+                            } catch (SQLException e1) {
+                                e1.printStackTrace();
+                            }
+                            String redirectURL = "login.jsp?action=0&message=" +
+                                    new String(Base64.getEncoder().encode("User Correctly activated".getBytes()));
+                            response.sendRedirect(redirectURL);
+                        }else {
+                            System.out.println("Errore nell'aggiornamento del database");
+                            try {
+                                connection.close();
+                            } catch (SQLException e1) {
+                                e1.printStackTrace();
+                            }
+                            String redirectURL = "login.jsp?action=0&message=" +
+                                    new String(Base64.getEncoder().encode(("An error has occurred " +
+                                            ERROR_CODE_PAGE + "x07").getBytes()));
+                            response.sendRedirect(redirectURL);
                         }
-                        String redirectURL = "login.jsp?action=0&message=" +
-                                new String(Base64.getEncoder().encode("User Correctly activated".getBytes()));
-                        response.sendRedirect(redirectURL);
                     }else {
-                        System.out.println("Errore nell'attivazione della paskey");
+                        System.out.println("Errore nell'attivazione della passkey");
                         try {
                             connection.close();
                         } catch (SQLException e1) {
@@ -431,18 +444,38 @@
                 }
             }
 
-            private static boolean updateActivtion(){
+            /**
+             *
+             * @param connection Connection
+             * @param passkey String
+             * @param email String
+             * @return boolean
+             */
+            private static boolean updateActivtion(Connection connection, String passkey, String email){
 
-                return true;
+                Statement stmt;
+                String query = "UPDATE users SET attivo='1', passkey='0' WHERE email=" + email;
+
+                try {
+                    stmt = connection.createStatement();
+                    stmt.executeUpdate(query);
+                    stmt.close();
+                    return true;
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                    System.out.println(e.toString());
+                    return false;
+                }
             }
 
             /**
              *
              * @param connection Connection
              * @param passKey String
+             * @param email String
              * @return boolean
              */
-            private static boolean checkPasskey(Connection connection, String passKey){
+            private static boolean checkPasskey(Connection connection, String passKey, String email){
 
                 //Faccio una chiamata al db
                 Statement statement;
@@ -456,7 +489,8 @@
 
                     while (resultSet.next()){
                         //Controllo corrispondenze
-                        if (resultSet.getString("passkey").equals(passKey))
+                        if (resultSet.getString("passkey").equals(passKey) &&
+                                resultSet.getString("emal").equals(email))
                             return true;
                     }
                     return false;
@@ -602,7 +636,8 @@
 
                     // Now set the actual message
                     message.setText("To confirm your Get Advertisment Account click to the following link: " +
-                            "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkey);
+                            "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkey
+                            + "&email=" + email);
 
                     // Send message
                     Transport transport = session.getTransport("smtp");
@@ -614,8 +649,6 @@
                     return false;
                 }
             }
-
-
         %>
 
 

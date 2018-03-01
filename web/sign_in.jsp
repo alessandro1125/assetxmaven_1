@@ -697,8 +697,9 @@
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
-                    System.out.println("quering1");
-                    
+
+
+                    System.out.println("quering1: " + resultSet.getFetchSize());
                     if (resultSet != null){
                         System.out.println("quering2");
                         do {

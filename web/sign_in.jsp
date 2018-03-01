@@ -360,7 +360,7 @@
 
                 try {
                     stmt = connection.createStatement();
-                    stmt.executeQuery(query);
+                    stmt.executeUpdate(query);
                     stmt.close();
                     return "";
                 }catch (SQLException e) {

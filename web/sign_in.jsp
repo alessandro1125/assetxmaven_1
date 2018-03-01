@@ -728,7 +728,6 @@
                     sqle.printStackTrace();
                     return false;
                 }
-                return true;
             }
 
             /**

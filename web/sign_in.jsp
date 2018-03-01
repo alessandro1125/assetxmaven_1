@@ -481,7 +481,7 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT passkey FROM users";
+                query = "SELECT email,passkey FROM users";
 
                 try{
                     statement = connection.createStatement();
@@ -490,7 +490,7 @@
                     while (resultSet.next()){
                         //Controllo corrispondenze
                         if (resultSet.getString("passkey").equals(passKey) &&
-                                resultSet.getString("emal").equals(email))
+                                resultSet.getString("email").equals(email))
                             return true;
                     }
                     return false;
@@ -512,7 +512,7 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT email,password FROM users";
+                query = "SELECT email FROM users";
 
                 try{
                     statement = connection.createStatement();

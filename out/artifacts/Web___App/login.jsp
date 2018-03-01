@@ -32,6 +32,21 @@
                         %>
                         <p class="form-style-8"><%= message %></p>
                         <%
+
+                        if (base64Message.equals("VXNlciBkb2Vzbid0IGV4aXN0")){//Login non corretto
+                            //Cancello i cookie
+                            Cookie[] cookies = request.getCookies();
+                            if (cookies != null) {
+
+                                for (int i = 0; i < cookies.length; i++) {
+
+                                    Cookie cookie = cookies[i];
+                                    cookies[i].setValue(null);
+                                    cookies[i].setMaxAge(0);
+                                    response.addCookie(cookie);
+                                }
+                            }
+                        }
                     }catch (NullPointerException e){
                         e.printStackTrace();
                     }
@@ -96,11 +111,11 @@
                     <input type="password" name="password" placeholder="Your password..."/>
                     <input type="submit" value="Login">
                 </form>
-                <form action="sign_in.jsp" method="get">
+                <form action="sign_in.jsp?action=0" method="POST">
                     <input type="submit" value="Sign In">
                 </form>
                 </form>
-                <form action="reset_password.jsp" method="get">
+                <form action="sign_in.jsp?action=3" method="POST">
                     <input type="submit"value="Reset Password">
                 </form>
             </div>
@@ -197,27 +212,18 @@
                                     //Invio un messaggio all'utente
                                     errorOccurred(response, "Password wrong");
                                     break;
+
+                                case 3:
+                                    //Non attivo
+                                    System.out.println("L'utente non è attivo");
+                                    //Invio un messaggio all'utente
+                                    errorOccurred(response, "User non activated");
+                                    break;
+
                                 default:
+                                    break;
 
                             }
-
-
-                            /*
-                            HashMap<String, Object> map = new HashMap();
-                            map.put("email", "user1@gmail.com");
-                            map.put("password", "password11252220");
-                            map.put("nome", "user1@gmail.com");
-                            map.put("cognome", "user1@gmail.com");
-                            map.put("anno", "user1@gmail.com");
-                            map.put("mese", "user1@gmail.com");
-                            map.put("giorno", "user1@gmail.com");
-                            map.put("attivo", "1");
-                            map.put("passkey", "0");
-                            map.put("devices_uid", "0");*/
-
-                            //addSql(connection , map, "users");
-
-                            //String[] res = selectSql(connection, "attivo", "users");
 
                         } else {
                             //Se uno e entrambi i cambi sono nulli
@@ -272,7 +278,7 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT email,password FROM users";
+                query = "SELECT email,password,attivo FROM users";
 
                 try{
                     statement = connection.createStatement();
@@ -280,18 +286,24 @@
 
                     boolean emailFounded = false;
                     boolean passwordFounded = false;
+                    boolean attivato = false;
                     while (resultSet.next()){
                         //Controllo corrispondenze
                         if (resultSet.getString("email").equals(email))
                             emailFounded = true;
                         if (emailFounded && resultSet.getString("password").equals(password))
                             passwordFounded = true;
+                        if (emailFounded && passwordFounded && resultSet.getString("attivo").equals("1"))
+                            attivato = true;
+
                     }
                     //Genero output
                     if (!emailFounded)
                         return 1;
                     if (!passwordFounded)
                         return 2;
+                    if (!attivato)
+                        return 3;
                     return 0;
 
 
@@ -299,7 +311,6 @@
                     sqle.printStackTrace();
                     return -1;
                 }
-
             }
 
             /**

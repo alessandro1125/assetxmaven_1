@@ -111,11 +111,11 @@
                     <input type="password" name="password" placeholder="Your password..."/>
                     <input type="submit" value="Login">
                 </form>
-                <form action="sign_in.jsp?action=0" method="get">
+                <form action="sign_in.jsp?action=0" method="POST">
                     <input type="submit" value="Sign In">
                 </form>
                 </form>
-                <form action="sign_in.jsp?action=3" method="get">
+                <form action="sign_in.jsp?action=3" method="POST">
                     <input type="submit"value="Reset Password">
                 </form>
             </div>

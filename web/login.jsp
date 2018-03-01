@@ -197,7 +197,16 @@
                                     //Invio un messaggio all'utente
                                     errorOccurred(response, "Password wrong");
                                     break;
+
+                                case 3:
+                                    //Non attivo
+                                    System.out.println("L'utente non è attivo");
+                                    //Invio un messaggio all'utente
+                                    errorOccurred(response, "User non activated");
+                                    break;
+
                                 default:
+                                    break;
 
                             }
 
@@ -254,7 +263,7 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT email,password FROM users";
+                query = "SELECT email,password,attivo FROM users";
 
                 try{
                     statement = connection.createStatement();
@@ -262,18 +271,24 @@
 
                     boolean emailFounded = false;
                     boolean passwordFounded = false;
+                    boolean attivato = false;
                     while (resultSet.next()){
                         //Controllo corrispondenze
                         if (resultSet.getString("email").equals(email))
                             emailFounded = true;
                         if (emailFounded && resultSet.getString("password").equals(password))
                             passwordFounded = true;
+                        if (emailFounded && passwordFounded && resultSet.getString("attivo").equals("1"))
+                            attivato = true;
+
                     }
                     //Genero output
                     if (!emailFounded)
                         return 1;
                     if (!passwordFounded)
                         return 2;
+                    if (!attivato)
+                        return 3;
                     return 0;
 
 

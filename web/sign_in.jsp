@@ -273,6 +273,11 @@
                         }catch (Exception e){
                             e.printStackTrace();
                             System.out.println("Errore nella connessione con il batabase");
+                            try {
+                                connection.close();
+                            } catch (SQLException e1) {
+                                e1.printStackTrace();
+                            }
                             String redirectURL = "login.jsp?action=0&message=" +
                                     new String(Base64.getEncoder().encode(("An error has occurred " +
                                             ERROR_CODE_PAGE + "x02").getBytes()));
@@ -281,7 +286,7 @@
 
                         //Controllo se l'utente è già registrato
                         if(!searchUser(connection, email)){
-                            
+
                             if(addSql(connection , map, "users")){
 
                                 //Stampo la risposta
@@ -293,6 +298,11 @@
                                 <%
                             }else {
                                 System.out.println("Errore nella scrittura nel database");
+                                try {
+                                    connection.close();
+                                } catch (SQLException e1) {
+                                    e1.printStackTrace();
+                                }
                                 String redirectURL = "login.jsp?action=0&message=" +
                                         new String(Base64.getEncoder().encode(("An error has occurred " +
                                                 ERROR_CODE_PAGE + "x03").getBytes()));
@@ -300,11 +310,20 @@
                             }
                         }else {
                             System.out.println("L'utente è già registrato");
+                                try {
+                                    connection.close();
+                                } catch (SQLException e1) {
+                                    e1.printStackTrace();
+                                }
                             String redirectURL = "login.jsp?action=0&message=" +
                                     new String(Base64.getEncoder().encode(("User already registered".getBytes())));
                             response.sendRedirect(redirectURL);
                         }
-                        connection.close();
+                        try {
+                            connection.close();
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
                     }else {
                         System.out.println("Errore nell'invio dell'email di conferma");
                         String redirectURL = "login.jsp?action=0&message=" +
@@ -313,14 +332,49 @@
                         response.sendRedirect(redirectURL);
                     }
 
-
                     break;
                 case 2:
                     //Eseguo l'attivazione dell'account
+                    String passkeyFrom = null;
+                    try {
+                        passkeyFrom = request.getParameter("passkey");
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
+                        System.out.println("Errore nella recezione della passkey");
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred " +
+                                        ERROR_CODE_PAGE + "x05").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }
 
-                    String redirectURL = "login.jsp?action=0&message=" +
-                            new String(Base64.getEncoder().encode("User Correctly activated".getBytes()));
-                    response.sendRedirect(redirectURL);
+                    //Controllo se la passkey è corretta
+                    Connection connection = getConnectionHeroku();
+                    if (checkPasskey(connection, passkeyFrom)){
+                        //Aggiorno lo stato di attivazione e cancello la passkey
+
+
+                        try {
+                            connection.close();
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode("User Correctly activated".getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }else {
+                        System.out.println("Errore nell'attivazione della paskey");
+                        try {
+                            connection.close();
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred " +
+                                        ERROR_CODE_PAGE + "x06").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }
+
+
                     break;
                 default:
                     response.sendRedirect("index.jsp?action=0");
@@ -377,6 +431,41 @@
                 }
             }
 
+            private static boolean updateActivtion(){
+
+                return true;
+            }
+
+            /**
+             *
+             * @param connection Connection
+             * @param passKey String
+             * @return boolean
+             */
+            private static boolean checkPasskey(Connection connection, String passKey){
+
+                //Faccio una chiamata al db
+                Statement statement;
+                String query;
+
+                query = "SELECT passkey FROM users";
+
+                try{
+                    statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery(query);
+
+                    while (resultSet.next()){
+                        //Controllo corrispondenze
+                        if (resultSet.getString("passkey").equals(passKey))
+                            return true;
+                    }
+                    return false;
+                }catch (SQLException sqle){
+                    sqle.printStackTrace();
+                    return false;
+                }
+            }
+
             /**
              *
              * @param connection Connection
@@ -395,8 +484,6 @@
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
 
-                    boolean emailFounded = false;
-                    boolean passwordFounded = false;
                     while (resultSet.next()){
                         //Controllo corrispondenze
                         if (resultSet.getString("email").equals(email))

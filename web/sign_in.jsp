@@ -243,8 +243,8 @@
                     double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
 
-                    String passkeyUrlEncoded = new String(Base64.getEncoder().encode(URLEncoder.encode(passkey, "UTF-8").getBytes()));
-                    String emailUrlEncoded = new String(Base64.getEncoder().encode(URLEncoder.encode(email, "UTF-8").getBytes()));
+                    String passkeyUrlEncoded = URLEncoder.encode(new String(Base64.getEncoder().encode(passkey.getBytes())), "UTF-8");
+                    String emailUrlEncoded = URLEncoder.encode(new String(Base64.getEncoder().encode(email.getBytes())), "UTF-8");
                     String text = "To confirm your Get Advertisment Account click to the following link: " +
                             "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkeyUrlEncoded
                             + "&email=" + emailUrlEncoded;
@@ -335,8 +335,8 @@
                     String passkey2 = null;
                     String email2 = null;
                     try {
-                        passkey2 = new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("passkey"), "UTF-8")));
-                        email2 = new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("email"), "UTF-8")));
+                        passkey2 = URLDecoder.decode(new String(Base64.getDecoder().decode(request.getParameter("passkey"))), "UTF-8");
+                        email2 = URLDecoder.decode(new String(Base64.getDecoder().decode(request.getParameter("email"))), "UTF-8");
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nella recezione della passkey " + ERROR_CODE_PAGE + "x05");

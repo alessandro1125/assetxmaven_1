@@ -1,14 +1,11 @@
 <%@ page import="javax.mail.*" %>
 <%@ page import="javax.mail.internet.*" %>
 <%@ page import="javax.activation.*" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.net.URI" %>
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.io.IOException" %>
+<%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -281,23 +278,33 @@
                                             ERROR_CODE_PAGE + "x02").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
-                        if(false){
-                        //if(addSql(connection , map, "users")){
 
-                            //Stampo la risposta
-                            %>
+                        //Controllo se l'utente è già registrato
+                        if(!searchUser(connection, email)){
+                            
+                            if(addSql(connection , map, "users")){
+
+                                //Stampo la risposta
+                                %>
                 <br>
                 <div class="form-style-8">
                     <h2>Ceck your email box to confirm your account</h2>
                 </div>
-                            <%
+                                <%
+                            }else {
+                                System.out.println("Errore nella scrittura nel database");
+                                String redirectURL = "login.jsp?action=0&message=" +
+                                        new String(Base64.getEncoder().encode(("An error has occurred " +
+                                                ERROR_CODE_PAGE + "x03").getBytes()));
+                                response.sendRedirect(redirectURL);
+                            }
                         }else {
-                            System.out.println("Errore nella scrittura nel database");
+                            System.out.println("L'utente è già registrato");
                             String redirectURL = "login.jsp?action=0&message=" +
-                                    new String(Base64.getEncoder().encode(("An error has occurred " +
-                                            ERROR_CODE_PAGE + "x03\n"+addSql(connection , map, "users")).getBytes()));
+                                    new String(Base64.getEncoder().encode(("User already registered".getBytes())));
                             response.sendRedirect(redirectURL);
                         }
+                        connection.close();
                     }else {
                         System.out.println("Errore nell'invio dell'email di conferma");
                         String redirectURL = "login.jsp?action=0&message=" +
@@ -332,7 +339,7 @@
              * @param table Stirng
              * @return boolean
              */
-            private static String addSql(Connection connection, HashMap<String, Object> record, String table) {
+            private static boolean addSql(Connection connection, HashMap<String, Object> record, String table) {
 
                 Statement stmt;
                 String keys, values;
@@ -362,11 +369,43 @@
                     stmt = connection.createStatement();
                     stmt.executeUpdate(query);
                     stmt.close();
-                    return "";
+                    return true;
                 }catch (SQLException e) {
                     e.printStackTrace();
                     System.out.println(e.toString());
-                    return e.toString();
+                    return false;
+                }
+            }
+
+            /**
+             *
+             * @param connection Connection
+             * @param email String
+             * @return boolean
+             */
+            private static boolean searchUser(Connection connection, String email){
+
+                //Faccio una chiamata al db
+                Statement statement;
+                String query;
+
+                query = "SELECT email,password FROM users";
+
+                try{
+                    statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery(query);
+
+                    boolean emailFounded = false;
+                    boolean passwordFounded = false;
+                    while (resultSet.next()){
+                        //Controllo corrispondenze
+                        if (resultSet.getString("email").equals(email))
+                            return true;
+                    }
+                    return false;
+                }catch (SQLException sqle){
+                    sqle.printStackTrace();
+                    return false;
                 }
             }
 

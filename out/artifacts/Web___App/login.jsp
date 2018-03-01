@@ -10,7 +10,7 @@
 <!DOCTYPE HTML>
 <html lang="it" dir="ltr">
     <head>
-        <title>AssetCopier</title>
+        <title>Get Advertisment</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="formstyle.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,7 +55,35 @@
 
             switch (action){
                 case 0:
+
+                    //Controllo i coockies per il login
+                    try{
+                        Cookie[] cookies = request.getCookies();
+                        if (cookies != null) {
+                            String email = null;
+                            String password = null;
+
+                            for (Cookie cookie : cookies) {
+                                try {
+                                    if (cookie.getName().equals("email"))
+                                        email = cookie.getValue();
+                                    if (cookie.getName().equals("password"))
+                                        password = cookie.getValue();
+                                }catch (NullPointerException e){
+                                    e.printStackTrace();
+                                }
+                            }
+                            if (email != null && password != null){
+                                //Faccio il login
+                                authenticationParser(request, response, email, password, action);
+                            }
+                        }
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
+                    }
+
                     //Mostro il form per il login
+
                     %>
 
 
@@ -97,20 +125,63 @@
                         e.printStackTrace();
                     }
 
+                    authenticationParser(request, response, email, password, action);
+
+
+
+                break;
+            }
+
+
+
+        %>
+
+
+        <%!
+
+            /**
+             *
+             * @param request HttpServletRequest
+             * @param response HttpServletResponse
+             * @param email String
+             * @param action int
+             * @param password String
+             */
+            private static void authenticationParser(HttpServletRequest request, HttpServletResponse response,
+                                                     String email, String password, int action){
+
+                try {
                     //Mi connetto al db
                     Connection connection;
                     connection = getConnectionHeroku();
 
-                    if(connection != null){
-                        if(email != null  && password != null){
+                    if (connection != null) {
+                        if (email != null && password != null) {
 
                             //Cerco la corrispondenza nella tabella users
 
-                            switch (authenticateUser(connection, email, password)){
+                            switch (authenticateUser(connection, email, password)) {
                                 case 0:
                                     //Login succesfully done
-                                    //Invio un messaggio all'utente
-                                    errorOccurred(response, "Login effettuato correttamente");
+
+                                    //Salvo i cookie se action = 1
+                                    if (action == 1) {
+                                        try {
+                                            Cookie emailCk = new Cookie("email", email);
+                                            Cookie passwordCk = new Cookie("password", password);
+
+                                            response.addCookie(emailCk);
+                                            response.addCookie(passwordCk);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    //Redirect nella area personale
+                                    RequestDispatcher dispatcher;
+                                    dispatcher = request.getRequestDispatcher("uids_dashboard.jsp?email=" + email +
+                                            "&password=" + password);
+                                    dispatcher.forward(request, response);
                                     break;
 
                                 case 1:
@@ -148,9 +219,7 @@
 
                             //String[] res = selectSql(connection, "attivo", "users");
 
-                            %><p><%= connection.toString()%><br></p><%
-
-                        }else {
+                        } else {
                             //Se uno e entrambi i cambi sono nulli
                             System.out.println("Parameters are not valid");
                             //Invio un messaggio all'utente
@@ -159,26 +228,22 @@
 
                         try {
                             connection.close();
-                        }catch (SQLException e){
+                        } catch (SQLException e) {
                             e.printStackTrace();
                         }
 
-                    }else {
+                    } else {
                         //Se fallisce la connessione al database
                         System.out.println("Unable to connect to database");
                         //Invio un messaggio all'utente
                         errorOccurred(response, "An error has occurred");
                     }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
-                break;
             }
 
-
-
-        %>
-
-
-        <%!
             /**
              *
              * @param httpSerletResponse HttpServletResponse
@@ -203,6 +268,7 @@
              */
             private static int authenticateUser(Connection connection, String email, String password){
 
+                //Faccio una chiamata al db
                 Statement statement;
                 String query;
 
@@ -255,7 +321,7 @@
                 }
                 queryNames = namesBuilder.toString();
 
-                String query = "SELECT "+ queryNames + " FROM " + table;//TODO più names
+                String query = "SELECT "+ queryNames + " FROM " + table;
 
                 try {
                     stmt = connection.createStatement();

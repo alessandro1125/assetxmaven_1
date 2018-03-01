@@ -268,6 +268,7 @@
              */
             private static int authenticateUser(Connection connection, String email, String password){
 
+                //Faccio una chiamata al db
                 Statement statement;
                 String query;
 
@@ -320,7 +321,7 @@
                 }
                 queryNames = namesBuilder.toString();
 
-                String query = "SELECT "+ queryNames + " FROM " + table;//TODO più names
+                String query = "SELECT "+ queryNames + " FROM " + table;
 
                 try {
                     stmt = connection.createStatement();

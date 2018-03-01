@@ -218,16 +218,9 @@
 
 
                 case 1:
-                    //Registro l'account e invio l'email di conferma
-                    %>
-        <br>
-        <div class="form-style-8">
-            <h2>Ceck your email box to confirm your account</h2>
-                    <%
-                    break;
-                default:
-                    response.sendRedirect("index.jsp?action=0");
-                    break;
+                    //Registro l'account
+
+
             }
 
 

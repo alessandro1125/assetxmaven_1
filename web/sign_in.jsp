@@ -699,16 +699,21 @@
                     ResultSet resultSet = statement.executeQuery(query);
 
                     System.out.println("quering1: ");
+                    boolean matched = false;
                     if (resultSet != null){
                         System.out.println("quering2");
                         while (resultSet.next()){
                             //Controllo corrispondenze
-                            System.out.println("quering3");
-                            System.out.println(resultSet.getString("passkey"));
+                            //System.out.println(resultSet.getString("passkey") + "\t );
                             if (resultSet.getString("passkey").equals(passKey))
-                                return true;
+                                matched = true;
                         }
-
+                        if (matched) {
+                            System.out.println("True");
+                            return true;
+                        }else {
+                            return false;
+                        }
                     }else
                         System.out.println("Empity resultset");
                     return false;

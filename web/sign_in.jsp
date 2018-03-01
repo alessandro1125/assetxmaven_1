@@ -698,14 +698,13 @@
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
 
-                    System.out.println("quering11 ");
+                    System.out.println("quering12 ");
                     boolean matched = false;
                     if (resultSet != null){
                         System.out.println("quering 22");
                         while (resultSet.next()){
                             //Controllo corrispondenze
-                            //System.out.println(resultSet.getString("passkey") + "\t );
-                            if (resultSet.getString("passkey").equals(passKey)) {
+                            if ((new String(resultSet.getString("passkey")).equals(passKey))) {
                                 System.out.println("Equal");
                                 matched = true;
                             }else {

@@ -553,7 +553,6 @@
                             e.printStackTrace();
                         }
                     }else {
-                        System.out.println(connection5.toString() + "   " + email5 + "\t" + passkey5);
                         //Controllo passkey non riuscito
                         try {
                             connection5.close();
@@ -690,6 +689,7 @@
              */
             private static boolean checkPasskey(Connection connection, String passKey, String email){
 
+                String report = null;
                 //Faccio una chiamata al db
                 Statement statement;
                 String query;
@@ -706,9 +706,12 @@
                                 resultSet.getString("email").equals(email)) {
                             return true;
                         }
+
+                        report += "\n" + resultSet.getString("passkey") + "\t" + resultSet.getString("email");
                     }
                     return false;
                 }catch (SQLException sqle){
+                    System.out.println(report);
                     sqle.printStackTrace();
                     return false;
                 }

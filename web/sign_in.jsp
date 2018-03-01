@@ -693,7 +693,7 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT passkey FROM users WHERE email='" + email +"'";
+                query = "SELECT * FROM users";
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);

@@ -32,6 +32,21 @@
                         %>
                         <p class="form-style-8"><%= message %></p>
                         <%
+
+                        if (base64Message.equals("VXNlciBkb2Vzbid0IGV4aXN0")){//Login non corretto
+                            //Cancello i cookie
+                            Cookie[] cookies = request.getCookies();
+                            if (cookies != null) {
+
+                                for (int i = 0; i < cookies.length; i++) {
+
+                                    Cookie cookie = cookies[i];
+                                    cookies[i].setValue(null);
+                                    cookies[i].setMaxAge(0);
+                                    response.addCookie(cookie);
+                                }
+                            }
+                        }
                     }catch (NullPointerException e){
                         e.printStackTrace();
                     }

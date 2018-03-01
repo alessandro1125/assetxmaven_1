@@ -706,11 +706,10 @@
                                 resultSet.getString("email").equals(email)) {
                             return true;
                         }
-
-                        report += "\n" + resultSet.getString("passkey") + "\t" + resultSet.getString("email");
-
+                        System.out.println("Email: " + resultSet.getString("email"));
+                        System.out.println("Passkey: " + resultSet.getString("passkey"));
+                        System.out.println("");
                     }
-                    System.out.println(report);
                     return false;
                 }catch (SQLException sqle){
                     sqle.printStackTrace();

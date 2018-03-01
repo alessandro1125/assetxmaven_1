@@ -692,9 +692,9 @@
                 //Faccio una chiamata al db
                 Statement statement;
                 String query;
-                System.out.println("starting query");
-                query = "SELECT passkey FROM users WHERE email='" + email +"'";
 
+                query = "SELECT passkey FROM users WHERE email='" + email +"'";
+                System.out.println("starting query");
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);

@@ -708,10 +708,11 @@
                         }
 
                         report += "\n" + resultSet.getString("passkey") + "\t" + resultSet.getString("email");
+
                     }
+                    System.out.println(report);
                     return false;
                 }catch (SQLException sqle){
-                    System.out.println(report);
                     sqle.printStackTrace();
                     return false;
                 }

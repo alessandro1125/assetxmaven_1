@@ -694,21 +694,18 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT email,passkey FROM users";
+                query = "SELECT passkey, FROM users WHERE email='" + email +"'";
 
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
 
-                    while (resultSet.next()){
-                        //Controllo corrispondenze
-                        if (resultSet.getString("passkey").equals(passKey) &&
-                                resultSet.getString("email").equals(email)) {
-                            return true;
+                    if (resultSet != null){
+                        while (resultSet.next()){
+                            //Controllo corrispondenze
+                            if (resultSet.getString("passkey").equals(passKey))
+                                return true;
                         }
-                        System.out.println("Email: " + resultSet.getString("email"));
-                        System.out.println("Passkey: " + resultSet.getString("passkey"));
-                        System.out.println("");
                     }
                     return false;
                 }catch (SQLException sqle){

@@ -10,6 +10,7 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.net.URI" %>
 <%@ page import="java.net.URISyntaxException" %>
+<%@ page import="java.util.Base64" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -242,7 +243,8 @@
                         giorno = request.getParameter("giorno");
                     }catch (NullPointerException e){;
                         e.printStackTrace();
-                        String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                Base64.getEncoder().encode("An error has occurred".getBytes());
                         response.sendRedirect(redirectURL);
                     }
 
@@ -271,7 +273,8 @@
                         }catch (Exception e){
                             e.printStackTrace();
                             System.out.println("Errore nella connessione con il batabase");
-                            String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                            String redirectURL = "login.jsp?action=0&message=" +
+                                    Base64.getEncoder().encode("An error has occurred".getBytes());
                             response.sendRedirect(redirectURL);
                         }
                         if(addSql(connection , map, "users")){
@@ -285,12 +288,14 @@
                             <%
                         }else {
                             System.out.println("Errore nella scrittura nel database");
-                            String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                            String redirectURL = "login.jsp?action=0&message=" +
+                                    Base64.getEncoder().encode("An error has occurred".getBytes());
                             response.sendRedirect(redirectURL);
                         }
                     }else {
                         System.out.println("Errore nell'invio dell'emaio di conferma");
-                        String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                Base64.getEncoder().encode("An error has occurred".getBytes());
                         response.sendRedirect(redirectURL);
                     }
 
@@ -299,7 +304,8 @@
                 case 2:
                     //Eseguo l'attivazione dell'account
 
-                    String redirectURL = "login.jsp?action=0&message=User correctly activated";
+                    String redirectURL = "login.jsp?action=0&message=" +
+                            Base64.getEncoder().encode("User Correctly activated".getBytes());
                     response.sendRedirect(redirectURL);
                     break;
                 default:

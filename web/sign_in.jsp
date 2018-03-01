@@ -353,7 +353,7 @@
                     Connection connection = getConnectionHeroku();
                     if (checkPasskey(connection, passkeyFrom, emailFrom)){
                         //Aggiorno lo stato di attivazione e cancello la passkey
-                        if(updateActivtion(connection, passkeyFrom, emailFrom)) {
+                        if(updateActivtion(connection, emailFrom)) {
                             try {
                                 connection.close();
                             } catch (SQLException e1) {
@@ -363,12 +363,12 @@
                                     new String(Base64.getEncoder().encode("User Correctly activated".getBytes()));
                             response.sendRedirect(redirectURL);
                         }else {
-                            System.out.println("Errore nell'aggiornamento del database");
                             try {
                                 connection.close();
                             } catch (SQLException e1) {
                                 e1.printStackTrace();
                             }
+                            System.out.println("Errore nell'aggiornamento del database");
                             String redirectURL = "login.jsp?action=0&message=" +
                                     new String(Base64.getEncoder().encode(("An error has occurred " +
                                             ERROR_CODE_PAGE + "x07").getBytes()));
@@ -447,14 +447,13 @@
             /**
              *
              * @param connection Connection
-             * @param passkey String
              * @param email String
              * @return boolean
              */
-            private static boolean updateActivtion(Connection connection, String passkey, String email){
+            private static boolean updateActivtion(Connection connection, String email){
 
                 Statement stmt;
-                String query = "UPDATE users SET attivo='1', passkey='0' WHERE email=" + email;
+                String query = "UPDATE users SET attivo='1', passkey='0' WHERE email='" + email + "'";
 
                 try {
                     stmt = connection.createStatement();

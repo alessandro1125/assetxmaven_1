@@ -243,12 +243,12 @@
                     double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
 
-                    String passkeyUrlEncoded = URLEncoder.encode(passkey, "UTF-8");
-                    String emailUrlEncoded = URLEncoder.encode(email, "UTF-8");
+                    String passkeyUrlEncoded = new String(Base64.getEncoder().encode(URLEncoder.encode(passkey, "UTF-8").getBytes()));
+                    String emailUrlEncoded = new String(Base64.getEncoder().encode(URLEncoder.encode(email, "UTF-8").getBytes()));
                     String text = "To confirm your Get Advertisment Account click to the following link: " +
                             "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkeyUrlEncoded
                             + "&email=" + emailUrlEncoded;
-                    if(sendEmail(email, text)){
+                    if(sendEmail(email, text, "User confirmation")){
 
                         //Se l'email è stata inviata correttamente salvo l'utente nel database
                         HashMap<String, Object> map = new HashMap();
@@ -332,11 +332,11 @@
                     break;
                 case 2:
                     //Eseguo l'attivazione dell'account
-                    String passkeyFrom = null;
-                    String emailFrom = null;
+                    String passkey2 = null;
+                    String email2 = null;
                     try {
-                        passkeyFrom = URLDecoder.decode(request.getParameter("passkey"), "UTF-8");
-                        emailFrom = URLDecoder.decode(request.getParameter("email"), "UTF-8");
+                        passkey2 = new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("passkey"), "UTF-8")));
+                        email2 = new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("email"), "UTF-8")));
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nella recezione della passkey " + ERROR_CODE_PAGE + "x05");
@@ -348,9 +348,9 @@
 
                     //Controllo se la passkey è corretta
                     Connection connection = getConnectionHeroku();
-                    if (checkPasskey(connection, passkeyFrom, emailFrom)){
+                    if (checkPasskey(connection, passkey2, email2)){
                         //Aggiorno lo stato di attivazione e cancello la passkey
-                        if(updateActivtion(connection, emailFrom)) {
+                        if(updateActivtion(connection, email2)) {
                             try {
                                 connection.close();
                             } catch (SQLException e1) {
@@ -404,9 +404,9 @@
                     break;
 
                 case 4:
-                    String emailPass = null;
+                    String email4 = null;
                     try{
-                        emailPass = request.getParameter("email");
+                        email4 = request.getParameter("email");
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         System.out.println("Errore nel parametro " + ERROR_CODE_PAGE + "x08");
@@ -418,7 +418,7 @@
 
                     //Controllo se l'utente è già stato attivato
                     Connection connectionPass = getConnectionHeroku();
-                    if(searchUserAtivated(connectionPass, emailPass)){
+                    if(searchUserAtivated(connectionPass, email4)){
                         //Genero la passkey per la modifica password
                         double passkeyPassDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
                         String passkeyPass = Double.toString(passkeyPassDoub).substring(2,Double.toString(passkeyPassDoub).length());
@@ -426,10 +426,11 @@
                         //Invio la passkey per email
                         String textPass = "To change your password please click on this link: " +
                                 "https://getadvertisment.herokuapp.com/sign_in.jsp?action=5&email="+
-                                URLEncoder.encode(emailPass, "UTF-8") + "&passkey=" + URLEncoder.encode(passkeyPass, "UTF-8");
-                        if(sendEmail(emailPass, textPass)){
+                                new String(Base64.getEncoder().encode(URLEncoder.encode(email4, "UTF-8").getBytes()))
+                                + "&passkey=" + new String(Base64.getEncoder().encode(URLEncoder.encode(passkeyPass, "UTF-8").getBytes()));
+                        if(sendEmail(email4, textPass, "Reset password")){
                             //Aggiorno il database
-                            if (updatePasskey(connectionPass, emailPass, passkeyPass)){
+                            if (updatePasskey(connectionPass, email4, passkeyPass)){
                                 //Stampo la risposta
                                 try {
                                     connectionPass.close();
@@ -485,7 +486,90 @@
                 case 5:
                     //Reimposto la password
 
-                    //Scarico e decodifico i parametri url
+                    //Scarico e decodifico i parametri url (BASE64 e URL)
+                    String email5 = null;
+                    String passkey5 = null;
+                    String email5Encoded = null;
+                    try{
+                        email5Encoded = request.getParameter("email");
+                        email5 = new String(Base64.getDecoder().decode(URLDecoder.decode(email5Encoded, "UTF-8")));
+                        passkey5 = new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("passkey"), "UTF-8")));
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred"  +
+                                        ERROR_CODE_PAGE + "x11").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }
+
+                    //Controllo nel database se i dati corrispondono
+                    Connection connection5 = getConnectionHeroku();
+                    if (checkPasskey(connection5, email5, passkey5)){
+                        //Mostro il form per la reimpostazione della password
+                        %>
+        <div class="form-style-8">
+            <h2>Set new password</h2>
+            <p id="messagesp" style="display: none"></p>
+            <form class="form-style-8" action="sign_in.jsp?action=6?email=<%= email5Encoded%>" method="POST">
+                <input type="password" id="newpassword" name="password" placeholder="Enter the new password...">
+                <input type="password" id="newpasswordconf" name="password_confirm" placeholder="Confirm password...">
+                <input type="submit" value="Confirm" id="sendreq" style="display: none">
+            </form>
+            <input type="submit" value="Submit" id="check" onclick="check_password()">
+
+            <script>
+                function check_password() {
+                    if (document.getElementById("newpassword").value.length <= 8){
+                        if(document.getElementById("newpassword").value.localeCompare(document.getElementById
+                            ("newpasswordconf").value) === 0){
+                            //Cambio la password
+                            document.getElementById("newpassword").style.display = "none";
+                            document.getElementById("newpasswordconf").style.display = "none";
+                            document.getElementById("messagesp").innerHTML = "Ckick confirm to update your password";
+                            document.getElementById("messagesp").style.display = "block";
+
+                            document.getElementById("sendreq").style.display = "block";
+                            document.getElementById("check").style.display = "none";
+
+                        }else {
+                            document.getElementById("messagesp").innerHTML = "Passwords must be the same";
+                            document.getElementById("messagesp").style.display = "block";
+                        }
+                    }else {
+                        document.getElementById("messagesp").innerHTML = "Minimum password size must be 8";
+                        document.getElementById("messagesp").style.display = "block";
+                    }
+                }
+
+
+            </script>
+        </div>
+                        <%
+                        try {
+                            connection5.close();
+                        }catch (SQLException e){
+                            e.printStackTrace();
+                        }
+                    }else {
+                        try {
+                            connection5.close();
+                        }catch (SQLException e){
+                            e.printStackTrace();
+                        }
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred"  +
+                                        ERROR_CODE_PAGE + "x12").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }
+
+
+
+                    break;
+
+                case 6:
+                    String email6 = null;
+                    String newPassword = null;
+
 
                     break;
 
@@ -499,6 +583,13 @@
 
         <%!
 
+            /**
+             *
+             * @param connection Connection
+             * @param email String
+             * @param passkey String
+             * @return boolean
+             */
             private static boolean updatePasskey(Connection connection, String email, String passkey){
 
                 Statement stmt;
@@ -744,9 +835,10 @@
              *
              * @param email String
              * @param text String
+             * @param object String
              * @return boolean
              */
-            private static boolean sendEmail(String email, String text){
+            private static boolean sendEmail(String email, String text, String object){
 
                 // Sender's email ID needs to be mentioned
                 String from = "alessandrogiordano.assetx@gmail.com";
@@ -779,7 +871,7 @@
                     message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
                     // Set Subject: header field
-                    message.setSubject("User Confimation");
+                    message.setSubject(object);
 
                     // Now set the actual message
                     message.setText(text);

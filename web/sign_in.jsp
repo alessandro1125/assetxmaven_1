@@ -705,8 +705,10 @@
                             //Controllo corrispondenze
                             if (resultSet.getString("passkey").equals(passKey))
                                 return true;
+                            System.out.println(resultSet.getString("passkey"));
                         }
-                    }
+                    }else
+                        System.out.println("Empity resultset");
                     return false;
                 }catch (SQLException sqle){
                     sqle.printStackTrace();

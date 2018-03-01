@@ -1,16 +1,13 @@
-<%@ page import="java.util.Calendar" %>
 <%@ page import="javax.mail.*" %>
 <%@ page import="javax.mail.internet.*" %>
 <%@ page import="javax.activation.*" %>
-<%@ page import="java.util.Properties" %>
-<%@ page import="java.util.HashMap" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.net.URI" %>
 <%@ page import="java.net.URISyntaxException" %>
-<%@ page import="java.util.Base64" %>
+<%@ page import="java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -21,6 +18,10 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
     </head>
     <body dir="ltr" dir="ltr" style="text-align: center;background-color:white;font-family:sans-serif;font-weight:lighter;color:#595959;">
+
+        <%!
+            public static final String ERROR_CODE_PAGE = "100";
+        %>
 
         <%
 
@@ -244,7 +245,8 @@
                     }catch (NullPointerException e){;
                         e.printStackTrace();
                         String redirectURL = "login.jsp?action=0&message=" +
-                                Base64.getEncoder().encode("An error has occurred".getBytes());
+                                Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                        ERROR_CODE_PAGE + "x01").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
 
@@ -274,7 +276,8 @@
                             e.printStackTrace();
                             System.out.println("Errore nella connessione con il batabase");
                             String redirectURL = "login.jsp?action=0&message=" +
-                                    Base64.getEncoder().encode("An error has occurred".getBytes());
+                                    Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                            ERROR_CODE_PAGE + "x02").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
                         if(addSql(connection , map, "users")){
@@ -289,13 +292,15 @@
                         }else {
                             System.out.println("Errore nella scrittura nel database");
                             String redirectURL = "login.jsp?action=0&message=" +
-                                    Base64.getEncoder().encode("An error has occurred".getBytes());
+                                    Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                            ERROR_CODE_PAGE + "x03").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
                     }else {
-                        System.out.println("Errore nell'invio dell'emaio di conferma");
+                        System.out.println("Errore nell'invio dell'email di conferma");
                         String redirectURL = "login.jsp?action=0&message=" +
-                                Base64.getEncoder().encode("An error has occurred".getBytes());
+                                Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                        ERROR_CODE_PAGE + "x04").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
 
@@ -305,7 +310,7 @@
                     //Eseguo l'attivazione dell'account
 
                     String redirectURL = "login.jsp?action=0&message=" +
-                            Base64.getEncoder().encode("User Correctly activated".getBytes());
+                            Arrays.toString(Base64.getEncoder().encode("User Correctly activated".getBytes()));
                     response.sendRedirect(redirectURL);
                     break;
                 default:

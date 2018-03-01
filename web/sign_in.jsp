@@ -426,8 +426,8 @@
                         //Invio la passkey per email
                         String textPass = "To change your password please click on this link: " +
                                 "https://getadvertisment.herokuapp.com/sign_in.jsp?action=5&email="+
-                                new String(Base64.getEncoder().encode(URLEncoder.encode(email4, "UTF-8").getBytes()))
-                                + "&passkey=" + new String(Base64.getEncoder().encode(URLEncoder.encode(passkeyPass, "UTF-8").getBytes()));
+                                URLEncoder.encode(new String(Base64.getEncoder().encode(email4.getBytes())),"UTF-8")
+                                + "&passkey=" +URLEncoder.encode(new String(Base64.getEncoder().encode(passkeyPass.getBytes())),"UTF-8");
                         if(sendEmail(email4, textPass, "Reset password")){
                             //Aggiorno il database
                             if (updatePasskey(connectionPass, email4, passkeyPass)){
@@ -492,8 +492,8 @@
                     String email5Encoded = null;
                     try{
                         email5Encoded = request.getParameter("email");
-                        email5 = new String(Base64.getDecoder().decode(URLDecoder.decode(email5Encoded, "UTF-8")));
-                        passkey5 = new String(Base64.getDecoder().decode(URLDecoder.decode(request.getParameter("passkey"), "UTF-8")));
+                        email5 = URLDecoder.decode(new String(Base64.getDecoder().decode(email5Encoded)), "UTF-8");
+                        passkey5 = URLDecoder.decode(new String(Base64.getDecoder().decode(request.getParameter("passkey"))), "UTF-8");
                     }catch (NullPointerException e){
                         e.printStackTrace();
                         String redirectURL = "login.jsp?action=0&message=" +

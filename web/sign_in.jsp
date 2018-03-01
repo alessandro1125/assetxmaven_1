@@ -241,17 +241,17 @@
 
                     double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
-                    if(sendEmail(passkey, email)){
+                    if(sendEmail(email, passkey)){
                         //Se l'email è stata inviata correttamente salvo l'utente nel database
-
-                    }
-
                     %>
         <br>
         <div class="form-style-8">
             <h2>Ceck your email box to confirm your account</h2>
         </div>
                     <%
+                    }
+
+
                     break;
                 default:
                     response.sendRedirect("index.jsp?action=0");

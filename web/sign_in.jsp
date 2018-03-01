@@ -391,7 +391,7 @@
                     %>
         <div class="form-style-8">
             <h2>Reset Password</h2>
-            <form class="form-style-8" action="sign_in.jsp?action=4">
+            <form class="form-style-8" action="sign_in.jsp?action=4" method="POST">
                 <input type="email" name="email" placeholder="Enter your email...">
                 <input type="submit" value="Submit">
             </form>
@@ -470,7 +470,7 @@
                             e.printStackTrace();
                         }
                         String redirectURL = "login.jsp?action=0&message=" +
-                                new String(Base64.getEncoder().encode(("User not already activated").getBytes()));
+                                new String(Base64.getEncoder().encode(("User doesn't sactivated").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
 

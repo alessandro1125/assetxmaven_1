@@ -709,7 +709,7 @@
                     }else
                         System.out.println("Empity resultset");
                     return false;
-                }catch (SQLException sqle){
+                }catch (Exception sqle){
                     System.out.println(sqle.toString());
                     sqle.printStackTrace();
                     return false;

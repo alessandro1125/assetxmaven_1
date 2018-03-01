@@ -245,7 +245,7 @@
                     }catch (NullPointerException e){;
                         e.printStackTrace();
                         String redirectURL = "login.jsp?action=0&message=" +
-                                Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                new String(Base64.getEncoder().encode(("An error has occurred" +
                                         ERROR_CODE_PAGE + "x01").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
@@ -276,7 +276,7 @@
                             e.printStackTrace();
                             System.out.println("Errore nella connessione con il batabase");
                             String redirectURL = "login.jsp?action=0&message=" +
-                                    Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                    new String(Base64.getEncoder().encode(("An error has occurred" +
                                             ERROR_CODE_PAGE + "x02").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
@@ -292,14 +292,14 @@
                         }else {
                             System.out.println("Errore nella scrittura nel database");
                             String redirectURL = "login.jsp?action=0&message=" +
-                                    Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                    new String(Base64.getEncoder().encode(("An error has occurred" +
                                             ERROR_CODE_PAGE + "x03").getBytes()));
                             response.sendRedirect(redirectURL);
                         }
                     }else {
                         System.out.println("Errore nell'invio dell'email di conferma");
                         String redirectURL = "login.jsp?action=0&message=" +
-                                Arrays.toString(Base64.getEncoder().encode(("An error has occurred" +
+                                new String(Base64.getEncoder().encode(("An error has occurred" +
                                         ERROR_CODE_PAGE + "x04").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
@@ -310,7 +310,7 @@
                     //Eseguo l'attivazione dell'account
 
                     String redirectURL = "login.jsp?action=0&message=" +
-                            Arrays.toString(Base64.getEncoder().encode("User Correctly activated".getBytes()));
+                            new String(Base64.getEncoder().encode("User Correctly activated".getBytes()));
                     response.sendRedirect(redirectURL);
                     break;
                 default:

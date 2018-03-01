@@ -696,15 +696,14 @@
                 query = "SELECT passkey FROM users WHERE email='" + email +"'";
                 try{
                     statement = connection.createStatement();
-                    System.out.println("starting query");
                     ResultSet resultSet = statement.executeQuery(query);
-
                     if (resultSet != null){
                         while (resultSet.next()){
                             //Controllo corrispondenze
+                            System.out.println(resultSet.getString("passkey"));
                             if (resultSet.getString("passkey").equals(passKey))
                                 return true;
-                            System.out.println(resultSet.getString("passkey"));
+
                         }
                     }else
                         System.out.println("Empity resultset");

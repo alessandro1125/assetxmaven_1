@@ -393,7 +393,7 @@
             <h2>Reset Password</h2>
             <form class="form-style-8" action="sign_in.jsp?action=4">
                 <input type="email" name="email" placeholder="Enter your email...">
-                <input type="submit" name="submit">
+                <input type="submit" value="Submit">
             </form>
         </div>
                     <%

@@ -697,18 +697,17 @@
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
-                    resultSet.first();
 
-                    System.out.println("quering1: " + resultSet.getString("passkey"));
+                    System.out.println("quering1: ");
                     if (resultSet != null){
                         System.out.println("quering2");
-                        do {
+                        while (resultSet.next()){
                             //Controllo corrispondenze
                             System.out.println("quering3");
                             System.out.println(resultSet.getString("passkey"));
                             if (resultSet.getString("passkey").equals(passKey))
                                 return true;
-                        }while (resultSet.next());
+                        }
 
                     }else
                         System.out.println("Empity resultset");

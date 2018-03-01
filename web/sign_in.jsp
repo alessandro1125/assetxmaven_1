@@ -560,7 +560,7 @@
                             e.printStackTrace();
                         }
                         String redirectURL = "login.jsp?action=0&message=" +
-                                new String(Base64.getEncoder().encode(("An error has occurred "+ email5 + "  " + passkey5 + "   "  +
+                                new String(Base64.getEncoder().encode(("An error has occurred "+
                                         ERROR_CODE_PAGE + "x12").getBytes()));
                         response.sendRedirect(redirectURL);
                     }
@@ -572,6 +572,8 @@
                 case 6:
                     String email6 = null;
                     String newPassword = null;
+
+                    //Decodifico email e password e inserisco la password nel db
 
 
                     break;
@@ -700,8 +702,9 @@
                     while (resultSet.next()){
                         //Controllo corrispondenze
                         if (resultSet.getString("passkey").equals(passKey) &&
-                                resultSet.getString("email").equals(email))
+                                resultSet.getString("email").equals(email)) {
                             return true;
+                        }
                     }
                     return false;
                 }catch (SQLException sqle){

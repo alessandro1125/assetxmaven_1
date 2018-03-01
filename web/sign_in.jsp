@@ -697,11 +697,9 @@
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
+                    resultSet.first();
 
-                    resultSet.last();
-
-
-                    System.out.println("quering1: " + resultSet.getRow());
+                    System.out.println("quering1: " + resultSet.getString("passkey"));
                     if (resultSet != null){
                         System.out.println("quering2");
                         do {

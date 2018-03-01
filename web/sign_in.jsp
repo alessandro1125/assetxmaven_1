@@ -689,11 +689,10 @@
              */
             private static boolean checkPasskey(Connection connection, String passKey, String email){
 
-                String report = null;
                 //Faccio una chiamata al db
                 Statement statement;
                 String query;
-
+                System.out.println("starting query");
                 query = "SELECT passkey, FROM users WHERE email='" + email +"'";
 
                 try{

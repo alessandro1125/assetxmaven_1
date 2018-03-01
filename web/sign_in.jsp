@@ -553,13 +553,14 @@
                             e.printStackTrace();
                         }
                     }else {
+                        //Controllo passkey non riuscito
                         try {
                             connection5.close();
                         }catch (SQLException e){
                             e.printStackTrace();
                         }
                         String redirectURL = "login.jsp?action=0&message=" +
-                                new String(Base64.getEncoder().encode(("An error has occurred"  +
+                                new String(Base64.getEncoder().encode(("An error has occurred "+ email5 + "  " + passkey5 + "   "  +
                                         ERROR_CODE_PAGE + "x12").getBytes()));
                         response.sendRedirect(redirectURL);
                     }

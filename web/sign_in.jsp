@@ -710,6 +710,7 @@
                         System.out.println("Empity resultset");
                     return false;
                 }catch (SQLException sqle){
+                    System.out.println(sqle.toString());
                     sqle.printStackTrace();
                     return false;
                 }

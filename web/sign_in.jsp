@@ -698,8 +698,10 @@
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
 
+                    resultSet.last();
 
-                    System.out.println("quering1: " + resultSet.getFetchSize());
+
+                    System.out.println("quering1: " + resultSet.getRow());
                     if (resultSet != null){
                         System.out.println("quering2");
                         do {

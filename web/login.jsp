@@ -201,24 +201,6 @@
 
                             }
 
-
-                            /*
-                            HashMap<String, Object> map = new HashMap();
-                            map.put("email", "user1@gmail.com");
-                            map.put("password", "password11252220");
-                            map.put("nome", "user1@gmail.com");
-                            map.put("cognome", "user1@gmail.com");
-                            map.put("anno", "user1@gmail.com");
-                            map.put("mese", "user1@gmail.com");
-                            map.put("giorno", "user1@gmail.com");
-                            map.put("attivo", "1");
-                            map.put("passkey", "0");
-                            map.put("devices_uid", "0");*/
-
-                            //addSql(connection , map, "users");
-
-                            //String[] res = selectSql(connection, "attivo", "users");
-
                         } else {
                             //Se uno e entrambi i cambi sono nulli
                             System.out.println("Parameters are not valid");

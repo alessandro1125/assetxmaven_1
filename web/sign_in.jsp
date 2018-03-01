@@ -3,6 +3,13 @@
 <%@ page import="javax.mail.internet.*" %>
 <%@ page import="javax.activation.*" %>
 <%@ page import="java.util.Properties" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.net.URI" %>
+<%@ page import="java.net.URISyntaxException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -241,20 +248,59 @@
 
                     double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
                     String passkey = Double.toString(passkeyDoub).substring(2,Double.toString(passkeyDoub).length());
+
                     if(sendEmail(email, passkey)){
                         //Se l'email è stata inviata correttamente salvo l'utente nel database
 
+                        HashMap<String, Object> map = new HashMap();
+                        map.put("email", email);
+                        map.put("password", password);
+                        map.put("nome", name);
+                        map.put("cognome", surname);
+                        map.put("anno", anno);
+                        map.put("mese", mese);
+                        map.put("giorno", giorno);
+                        map.put("attivo", "0");
+                        map.put("passkey", passkey);
+                        map.put("devices_uid", "");
 
-                        //Stampo la risposta
-                        %>
-            <br>
-            <div class="form-style-8">
-                <h2>Ceck your email box to confirm your account</h2>
-            </div>
-                        <%
+                        Connection connection = null;
+
+                        try {
+                            connection = getConnectionHeroku();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            System.out.println("Errore nella connessione con il batabase");
+                            String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                            response.sendRedirect(redirectURL);
+                        }
+                        if(addSql(connection , map, "users")){
+
+                            //Stampo la risposta
+                            %>
+                <br>
+                <div class="form-style-8">
+                    <h2>Ceck your email box to confirm your account</h2>
+                </div>
+                            <%
+                        }else {
+                            System.out.println("Errore nella scrittura nel database");
+                            String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                            response.sendRedirect(redirectURL);
+                        }
+                    }else {
+                        System.out.println("Errore nell'invio dell'emaio di conferma");
+                        String redirectURL = "login.jsp?action=0&message=An error has occurred";
+                        response.sendRedirect(redirectURL);
                     }
 
 
+                    break;
+                case 2:
+                    //Eseguo l'attivazione dell'account
+
+                    String redirectURL = "login.jsp?action=0&message=User correctly activated";
+                    response.sendRedirect(redirectURL);
                     break;
                 default:
                     response.sendRedirect("index.jsp?action=0");
@@ -266,6 +312,113 @@
 
         <%!
 
+            private boolean addSql(Connection connection, HashMap<String, Object> record, String table){
+
+                Statement stmt;
+                String keys, values;
+                StringBuilder keysBuilder, valuesBuilder;
+                keysBuilder = new StringBuilder();
+                valuesBuilder = new StringBuilder();
+                for (String key : record.keySet()){
+                    keysBuilder = keysBuilder.append(key).append(" ,");
+
+                    if (record.get(key).getClass() == String.class)
+                        valuesBuilder.append("'");
+                    valuesBuilder = valuesBuilder.append(record.get(key));
+                    if (record.get(key).getClass() == String.class)
+                        valuesBuilder.append("'");
+                    valuesBuilder = valuesBuilder.append(" ,");
+                }
+                keys = keysBuilder.toString();
+                keys = keys.substring(0, keys.length()-2);
+
+                values = valuesBuilder.toString();
+                values = values.substring(0, values.length()-2);
+
+                String query = "INSERT INTO " + table + " (" + keys + ")" +
+                        " VALUES (" + values + ")";
+
+                try {
+                    stmt = connection.createStatement();
+                    stmt.executeQuery(query);
+                    stmt.close();
+                    return true;
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                    System.out.println(e.toString());
+                    return false;
+                }
+            }
+
+            /**
+             * Metodo per la connessione al database locale Heroku
+             * @return Connection
+             */
+            private static Connection getConnectionHeroku(){
+                try {
+                    URI dbUri = null;
+                    dbUri = new URI(System.getenv("DATABASE_URL"));
+
+                    String username = dbUri.getUserInfo().split(":")[0];
+                    String password = dbUri.getUserInfo().split(":")[1];
+                    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
+                    return DriverManager.getConnection(dbUrl, username, password);
+
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+
+            /**
+             *
+             * @return Connection
+             */
+            private static Connection getConnection(){
+
+                Connection connection = null;
+                try {
+
+                    try {
+
+                        Class.forName("org.postgresql.Driver");
+
+                    } catch (ClassNotFoundException e) {
+
+                        System.out.println("Where is your PostgreSQL JDBC Driver? "
+                                + "Include in your library path!");
+                        e.printStackTrace();
+                        return null;
+
+                    }
+
+                    String url = "jdbc:postgresql://ec2-79-125-110-209.eu-west-1.compute.amazonaws.com:5432/" +
+                            "d2qht4msggj59q?" +
+                            "sslmode=require&user=sagdjsuxgvztxk&" +
+                            "password=8be153a38455d94b7422704cec7de29ab6b0772c07f40a94f71932387641710a";
+
+                    connection = DriverManager.getConnection(url);
+
+                }
+                catch (Exception e) {
+                    System.err.println("Database connection failed");
+                    System.err.println(e.getMessage());
+                }
+
+                return connection;
+
+            }
+
+            /**
+             *
+             * @param email String
+             * @param passkey String
+             * @return boolean
+             */
             private static boolean sendEmail(String email, String passkey){
 
                 // Sender's email ID needs to be mentioned
@@ -303,7 +456,7 @@
 
                     // Now set the actual message
                     message.setText("To confirm your Get Advertisment Account click to the following link: " +
-                            "url?passkey=" + passkey);
+                            "https://getadvertisment.herokuapp.com/sign_in.jsp?action=2&passkey=" + passkey);
 
                     // Send message
                     Transport transport = session.getTransport("smtp");

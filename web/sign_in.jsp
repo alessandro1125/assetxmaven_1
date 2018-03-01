@@ -705,8 +705,12 @@
                         while (resultSet.next()){
                             //Controllo corrispondenze
                             //System.out.println(resultSet.getString("passkey") + "\t );
-                            if (resultSet.getString("passkey").equals(passKey))
+                            if (resultSet.getString("passkey").equals(passKey)) {
+                                System.out.println("Equal");
                                 matched = true;
+                            }else {
+                                System.out.println("Not equal");
+                            }
                         }
                         if (matched) {
                             System.out.println("True");
@@ -715,14 +719,16 @@
                             System.out.println("False");
                             return false;
                         }
-                    }else
+                    }else {
                         System.out.println("Empity resultset");
+                    }
                     return false;
                 }catch (Exception sqle){
                     System.out.println(sqle.toString());
                     sqle.printStackTrace();
                     return false;
                 }
+                return true;
             }
 
             /**

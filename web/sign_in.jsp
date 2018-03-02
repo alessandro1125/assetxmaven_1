@@ -521,7 +521,7 @@
 
             <script>
                 function check_password() {
-                    if (document.getElementById("newpassword").value.length <= 8){
+                    if (document.getElementById("newpassword").value.length < 8){
                         if(document.getElementById("newpassword").value.localeCompare(document.getElementById
                             ("newpasswordconf").value) === 0){
                             //Cambio la password
@@ -540,6 +540,8 @@
                     }else {
                         document.getElementById("messagesp").innerHTML = "Minimum password size must be 8";
                         document.getElementById("messagesp").style.display = "block";
+                        document.getElementById("newpassword").value = "";
+                        document.getElementById("newpasseordconf").value = "";
                     }
                 }
 

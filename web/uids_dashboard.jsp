@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 </head>
 <body >
-    <div class="form-style-8" style="max-width: 100%; width: 100%; margin-top: 0; height: 70px; padding: 10px; background: #ff4d4d;">
+    <div id="toolbar" class="form-style-8" style="min-width: 100px; max-width: 100%; width: 100%; margin-top: 0; height: 70px; padding: 10px; background: #ff4d4d;">
         <h1 style="display: inline; border-radius: 2px; color: #e6e6e6; margin: auto; background: #ff4d4d;
         font-size: 26px; margin-left: 20px; margin-top: 20px;"
             >Get Advertisment Devices Dashboard</h1>

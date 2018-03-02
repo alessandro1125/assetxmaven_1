@@ -541,7 +541,7 @@
                         document.getElementById("messagesp").innerHTML = "Minimum password size must be 8";
                         document.getElementById("messagesp").style.display = "block";
                         document.getElementById("newpassword").value = "";
-                        document.getElementById("newpasseordconf").value = "";
+                        document.getElementById("newpasswordconf").value = "";
                     }
                 }
 

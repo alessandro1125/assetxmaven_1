@@ -29,9 +29,11 @@
             try {
                 if(request.getParameter("action") != null)
                     action = Integer.parseInt(request.getParameter("action"));
-            }catch (NullPointerException e){
+            }catch (NumberFormatException e){
                 e.printStackTrace();
                 action = 0;
+            }catch (NullPointerException e){
+                e.printStackTrace();
             }
 
             switch (action){
@@ -238,6 +240,8 @@
                                 new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x01").getBytes()));
                         response.sendRedirect(redirectURL);
+                    }catch (NumberFormatException e){
+                        e.printStackTrace();
                     }
 
                     double passkeyDoub = (Math.floor(Math.random() * Math.pow(10, 16)) / Math.pow(10, 16));
@@ -344,6 +348,8 @@
                                 new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x05").getBytes()));
                         response.sendRedirect(redirectURL);
+                    }catch (NumberFormatException e){
+                        e.printStackTrace();
                     }
 
                     //Controllo se la passkey è corretta
@@ -414,6 +420,8 @@
                                 new String(Base64.getEncoder().encode(("An error has occurred " +
                                         ERROR_CODE_PAGE + "x08").getBytes()));
                         response.sendRedirect(redirectURL);
+                    }catch (NumberFormatException e){
+                        e.printStackTrace();
                     }
 
                     //Controllo se l'utente è già stato attivato
@@ -502,6 +510,8 @@
                                 new String(Base64.getEncoder().encode(("An error has occurred"  +
                                         ERROR_CODE_PAGE + "x11").getBytes()));
                         response.sendRedirect(redirectURL);
+                    }catch (NumberFormatException e){
+                        e.printStackTrace();
                     }
 
                     //Controllo nel database se i dati corrispondono
@@ -512,7 +522,7 @@
         <div class="form-style-8">
             <h2>Set new password</h2>
             <p id="messagesp" style="display: none"></p>
-            <form class="form-style-8" action="sign_in.jsp?action=6?email=<%= email5Encoded%>" method="POST">
+            <form class="form-style-8" action="sign_in.jsp?action=6&email=<%= email5Encoded%>" method="POST">
                 <input type="password" id="newpassword" name="password" placeholder="Enter the new password...">
                 <input type="password" id="newpasswordconf" name="password_confirm" placeholder="Confirm password...">
                 <input type="submit" value="Confirm" id="sendreq" style="display: none">
@@ -582,11 +592,42 @@
                         newPassword = request.getParameter("password");
                     }catch (NullPointerException e){
                         e.printStackTrace();
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred "+
+                                        ERROR_CODE_PAGE + "x13").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }catch (NumberFormatException e){
+                        e.printStackTrace();
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred "+
+                                        ERROR_CODE_PAGE + "x14").getBytes()));
+                        response.sendRedirect(redirectURL);
                     }
                     System.out.println(email6);
                     System.out.print(newPassword);
 
-
+                    //Aggiorno il db
+                    Connection connection6 = getConnectionHeroku();
+                    if(updatePassword(connection6, email6, newPassword)){
+                        try {
+                            connection6.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("Passsword succesfully changed").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }else {
+                        try {
+                            connection6.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                        String redirectURL = "login.jsp?action=0&message=" +
+                                new String(Base64.getEncoder().encode(("An error has occurred "+
+                                        ERROR_CODE_PAGE + "x15").getBytes()));
+                        response.sendRedirect(redirectURL);
+                    }
                     break;
 
                 default:
@@ -598,6 +639,30 @@
         %>
 
         <%!
+
+            /**
+             *
+             * @param connection Connection
+             * @param email String
+             * @param password String
+             * @return boolean
+             */
+            private static boolean updatePassword(Connection connection, String email, String password){
+
+                Statement stmt;
+                String query = "UPDATE users SET passkey='0',password='" + password + "' WHERE email='" + email + "'";
+
+                try {
+                    stmt = connection.createStatement();
+                    stmt.executeUpdate(query);
+                    stmt.close();
+                    return true;
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                    System.out.println(e.toString());
+                    return false;
+                }
+            }
 
             /**
              *

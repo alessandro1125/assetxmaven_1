@@ -105,23 +105,24 @@
       <file leaf-file-name="sign_in.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="586" column="48" lean-forward="false" selection-start-line="586" selection-start-column="48" selection-end-line="586" selection-end-column="48" />
+            <state relative-caret-position="510">
+              <caret line="652" column="61" lean-forward="false" selection-start-line="652" selection-start-column="61" selection-end-line="652" selection-end-column="61" />
               <folding>
-                <marker date="1519981168114" expanded="true" signature="31549:31575" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="31549:31619" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="33351:33444" ph="INSERT INTO missingValue... " />
-                <marker date="1519981168114" expanded="true" signature="34156:34173" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="34156:34193" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="34156:34194" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="34156:34209" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="34156:34210" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="34156:34224" ph="UPDATE users... " />
-                <marker date="1519981168114" expanded="true" signature="35059:35084" ph="SELECT email... users" />
-                <marker date="1519981168114" expanded="true" signature="35059:35090" ph="SELECT passk... users" />
-                <marker date="1519981168114" expanded="true" signature="35059:35111" ph="SELECT passk... users" />
-                <marker date="1519981168114" expanded="true" signature="36310:36333" ph="SELECT email... users" />
-                <marker date="1519981168114" expanded="true" signature="37331:37361" ph="SELECT email... users" />
+                <marker date="1519981849151" expanded="true" signature="33962:34046" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="34809:34835" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="34809:34879" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="36611:36704" ph="INSERT INTO missingValue... " />
+                <marker date="1519981849151" expanded="true" signature="37416:37433" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="37416:37453" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="37416:37454" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="37416:37469" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="37416:37470" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="37416:37484" ph="UPDATE users... " />
+                <marker date="1519981849151" expanded="true" signature="38319:38344" ph="SELECT email... users" />
+                <marker date="1519981849151" expanded="true" signature="38319:38350" ph="SELECT passk... users" />
+                <marker date="1519981849151" expanded="true" signature="38319:38371" ph="SELECT passk... users" />
+                <marker date="1519981849151" expanded="true" signature="39570:39593" ph="SELECT email... users" />
+                <marker date="1519981849151" expanded="true" signature="40591:40621" ph="SELECT email... users" />
               </folding>
             </state>
           </provider>
@@ -472,12 +473,12 @@
       <workItem from="1519912830158" duration="16201000" />
       <workItem from="1519938949048" duration="5951000" />
       <workItem from="1519946044545" duration="414000" />
-      <workItem from="1519979469840" duration="1681000" />
+      <workItem from="1519979469840" duration="2362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88787000" />
+    <option name="totallyTimeSpent" value="89468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,20 +560,21 @@
         <state relative-caret-position="4199">
           <caret line="247" column="44" lean-forward="false" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
           <folding>
-            <marker date="1519981168114" expanded="true" signature="31549:31575" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="31549:31619" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="33351:33444" ph="INSERT INTO missingValue... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34173" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34193" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34194" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34209" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34210" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34224" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="35059:35084" ph="SELECT email... users" />
-            <marker date="1519981168114" expanded="true" signature="35059:35090" ph="SELECT passk... users" />
-            <marker date="1519981168114" expanded="true" signature="35059:35111" ph="SELECT passk... users" />
-            <marker date="1519981168114" expanded="true" signature="36310:36333" ph="SELECT email... users" />
-            <marker date="1519981168114" expanded="true" signature="37331:37361" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="33962:34046" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="34809:34835" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="34809:34879" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="36611:36704" ph="INSERT INTO missingValue... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37433" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37453" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37454" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37469" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37470" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37484" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="38319:38344" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="38319:38350" ph="SELECT passk... users" />
+            <marker date="1519981849151" expanded="true" signature="38319:38371" ph="SELECT passk... users" />
+            <marker date="1519981849151" expanded="true" signature="39570:39593" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="40591:40621" ph="SELECT email... users" />
           </folding>
         </state>
       </provider>
@@ -634,20 +636,21 @@
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1519981168114" expanded="true" signature="31549:31575" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="31549:31619" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="33351:33444" ph="INSERT INTO missingValue... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34173" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34193" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34194" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34209" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34210" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34224" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="35059:35084" ph="SELECT email... users" />
-            <marker date="1519981168114" expanded="true" signature="35059:35090" ph="SELECT passk... users" />
-            <marker date="1519981168114" expanded="true" signature="35059:35111" ph="SELECT passk... users" />
-            <marker date="1519981168114" expanded="true" signature="36310:36333" ph="SELECT email... users" />
-            <marker date="1519981168114" expanded="true" signature="37331:37361" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="33962:34046" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="34809:34835" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="34809:34879" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="36611:36704" ph="INSERT INTO missingValue... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37433" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37453" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37454" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37469" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37470" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37484" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="38319:38344" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="38319:38350" ph="SELECT passk... users" />
+            <marker date="1519981849151" expanded="true" signature="38319:38371" ph="SELECT passk... users" />
+            <marker date="1519981849151" expanded="true" signature="39570:39593" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="40591:40621" ph="SELECT email... users" />
           </folding>
         </state>
       </provider>
@@ -1173,23 +1176,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/sign_in.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="586" column="48" lean-forward="false" selection-start-line="586" selection-start-column="48" selection-end-line="586" selection-end-column="48" />
+        <state relative-caret-position="510">
+          <caret line="652" column="61" lean-forward="false" selection-start-line="652" selection-start-column="61" selection-end-line="652" selection-end-column="61" />
           <folding>
-            <marker date="1519981168114" expanded="true" signature="31549:31575" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="31549:31619" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="33351:33444" ph="INSERT INTO missingValue... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34173" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34193" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34194" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34209" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34210" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="34156:34224" ph="UPDATE users... " />
-            <marker date="1519981168114" expanded="true" signature="35059:35084" ph="SELECT email... users" />
-            <marker date="1519981168114" expanded="true" signature="35059:35090" ph="SELECT passk... users" />
-            <marker date="1519981168114" expanded="true" signature="35059:35111" ph="SELECT passk... users" />
-            <marker date="1519981168114" expanded="true" signature="36310:36333" ph="SELECT email... users" />
-            <marker date="1519981168114" expanded="true" signature="37331:37361" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="33962:34046" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="34809:34835" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="34809:34879" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="36611:36704" ph="INSERT INTO missingValue... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37433" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37453" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37454" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37469" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37470" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="37416:37484" ph="UPDATE users... " />
+            <marker date="1519981849151" expanded="true" signature="38319:38344" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="38319:38350" ph="SELECT passk... users" />
+            <marker date="1519981849151" expanded="true" signature="38319:38371" ph="SELECT passk... users" />
+            <marker date="1519981849151" expanded="true" signature="39570:39593" ph="SELECT email... users" />
+            <marker date="1519981849151" expanded="true" signature="40591:40621" ph="SELECT email... users" />
           </folding>
         </state>
       </provider>

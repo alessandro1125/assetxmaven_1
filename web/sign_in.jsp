@@ -521,7 +521,7 @@
 
             <script>
                 function check_password() {
-                    if (document.getElementById("newpassword").value.length < 8){
+                    if (document.getElementById("newpassword").value.length >= 8){
                         if(document.getElementById("newpassword").value.localeCompare(document.getElementById
                             ("newpasswordconf").value) === 0){
                             //Cambio la password

@@ -693,7 +693,7 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT * FROM users";
+                query = "SELECT * FROM users";//TODO restringere la ricerca
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
@@ -704,7 +704,7 @@
                         System.out.println("quering 22");
                         while (resultSet.next()){
                             //Controllo corrispondenze
-                            if ((new String(resultSet.getString("passkey")).equals(passKey))) {
+                            if ((resultSet.getString("passkey").equals(passKey))) {//TODO non vede l'uguaglianza
                                 System.out.println("Equal");
                                 matched = true;
                             }else {

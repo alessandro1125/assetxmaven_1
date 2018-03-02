@@ -576,6 +576,15 @@
                     String newPassword = null;
 
                     //Decodifico email e password e inserisco la password nel db
+                    try{
+                        email6 = new String(Base64.getDecoder().decode(URLDecoder.decode
+                                (request.getParameter("email"), "UTF-8")));
+                        newPassword = request.getParameter("password");
+                    }catch (NullPointerException e){
+                        e.printStackTrace();
+                    }
+                    System.out.println(email6);
+                    System.out.print(newPassword);
 
 
                     break;

@@ -506,7 +506,7 @@
 
                     //Controllo nel database se i dati corrispondono
                     Connection connection5 = getConnectionHeroku();
-                    if (checkPasskey(connection5, email5, passkey5)){
+                    if (checkPasskey(connection5, passkey5, email5)){
                         //Mostro il form per la reimpostazione della password
                         %>
         <div class="form-style-8">
@@ -693,34 +693,17 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT * FROM users";//TODO restringere la ricerca
+                query = "SELECT passkey FROM users WHERE email='" + email +"'";
+
                 try{
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
 
-                    System.out.println("quering15 ");
-                    boolean matched = false;
                     if (resultSet != null){
-                        System.out.println("quering 25");
                         while (resultSet.next()){
                             //Controllo corrispondenze
-                            /*System.out.println(resultSet.getString("passkey").getBytes().toString());
-                            System.out.println(passKey.getBytes().toString());*/
-                            System.out.println(resultSet.getString("passkey"));
-                            System.out.println(passKey);
-                            if ((resultSet.getString("passkey").equals(passKey))) {//TODO non vede l'uguaglianza
-                                System.out.println("Equal");
-                                matched = true;
-                            }else {
-                                System.out.println("Not equal");
-                            }
-                        }
-                        if (matched) {
-                            System.out.println("True");
-                            return true;
-                        }else {
-                            System.out.println("False");
-                            return false;
+                            if ((resultSet.getString("passkey").equals(passKey)))
+                                return true;
                         }
                     }else {
                         System.out.println("Empity resultset");
@@ -745,7 +728,7 @@
                 Statement statement;
                 String query;
 
-                query = "SELECT email FROM users";
+                query = "SELECT email FROM users";//TODO restringere la ricarca
 
                 try{
                     statement = connection.createStatement();

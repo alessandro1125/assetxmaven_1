@@ -698,14 +698,16 @@
                     statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(query);
 
-                    System.out.println("quering13 ");
+                    System.out.println("quering14 ");
                     boolean matched = false;
                     if (resultSet != null){
-                        System.out.println("quering 23");
+                        System.out.println("quering 24");
                         while (resultSet.next()){
                             //Controllo corrispondenze
-                            System.out.println(resultSet.getString("passkey").getBytes().toString());
-                            System.out.println(passKey.getBytes().toString());
+                            /*System.out.println(resultSet.getString("passkey").getBytes().toString());
+                            System.out.println(passKey.getBytes().toString());*/
+                            System.out.println(resultSet.getString("passket"));
+                            System.out.println(passKey);
                             if ((resultSet.getString("passkey").equals(passKey))) {//TODO non vede l'uguaglianza
                                 System.out.println("Equal");
                                 matched = true;

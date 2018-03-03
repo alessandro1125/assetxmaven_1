@@ -13,7 +13,7 @@
     %>
     <title>UID dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="formstyle.css" rel="stylesheet" type="text/css?time=<%= time %>"><!-- TODO non funziona il css cache -->
+    <link href="formstyle.css?<%= time %>" rel="stylesheet" type="text/css"><!-- TODO non funziona il css cache -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 </head>

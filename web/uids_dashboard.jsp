@@ -13,7 +13,7 @@
     %>
     <title>UID dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="formstyle.css?<%= time %>" rel="stylesheet" type="text/css"><!-- TODO non funziona il css cache -->
+    <link href="formstyle.css?<%= time %>" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 </head>
@@ -24,7 +24,7 @@
         <!-- TODO controllare la popsizione relative che non va -->
         <input type="button" value="Log Out" class="form-style-1" style=
                 "border-radius: 2px; width: 100px; position: absolute;
-                 right: 20px; color: #dddddd; display: inline;">
+                 right: 20px; color: #e6e6e6; display: inline;">
     </div>
 </body>
 </html>

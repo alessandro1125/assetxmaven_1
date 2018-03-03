@@ -23,12 +23,12 @@
     /*-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     box-shadow: inset 0px 1px 0px 0px #45D6D6;*/
-    background-color: #00adcc;
-    border: 0 solid #27A0A0;
+    background: #ff4d4d;
+    border: 0 solid #ff4d4d;
     border-radius: 2px;
     display: inline-block;
     cursor: pointer;
-    color: #FFFFFF;
+    color: #e6e6e6;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 14px;
     padding: 8px 18px;
@@ -41,6 +41,18 @@
     background:linear-gradient(to bottom, #ffb3b3 5%, #ffb3b3 100%);
     background-color:#ffb3b3;
 }
+
+.form-style-8 h1{
+    display: inline;
+    border-radius: 2px;
+    margin: auto;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: #e6e6e6;
+}
+
+
 .form-style-8 h2,
 .form-style-8 h3{
     background: #e6e6e6;
@@ -90,12 +102,12 @@
     /*-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     box-shadow: inset 0px 1px 0px 0px #45D6D6;*/
-    background-color: #00adcc/*#2CBBBB*/;
-    border: 0px solid #00adcc;
+    background-color: #ff4d4d/*#2CBBBB*/;
+    border: 0 solid #ff4d4d;
     border-radius: 0;
     display: inline-block;
     cursor: pointer;
-    color: #FFFFFF;
+    color: #e6e6e6;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 14px;
     padding: 8px 18px;

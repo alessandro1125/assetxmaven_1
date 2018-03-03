@@ -120,7 +120,7 @@
                 </form>
             </div>
         </div>
-        <div class = "form-style-8" style="bottom:0px;left:20%;">
+        <div class = "form-style-8" style="bottom:0;left:20%;">
             Contacts:<blockquote> urimkuci.assetx@gmail.com<br>alessandrogiordano.assetx@gmail.com</blockquote>
         </div>
 

@@ -24,7 +24,7 @@
         <!-- TODO controllare la popsizione relative che non va -->
         <input type="button" value="Log Out" class="form-style-1" style=
                 "border-radius: 2px; width: 100px; position: absolute;
-                 right: 20px; color: #808080; display: inline;">
+                 right: 20px; color: #dddddd; display: inline;">
     </div>
 </body>
 </html>

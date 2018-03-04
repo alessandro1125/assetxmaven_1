@@ -8,9 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%
+        String time = GregorianCalendar.getInstance().getTime().toString();
+    %>
     <title>UID dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="formstyle.css" rel="stylesheet" type="text/css?<%= GregorianCalendar.getInstance().getTime().toString()%>">
+    <link href="formstyle.css?<%= time %>" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 </head>
@@ -20,7 +23,7 @@
 
         <input type="button" value="Log Out" class="form-style-1" style=
                 "border-radius: 2px; width: 100px; position: absolute;
-                 right: 20px; color: #808080; display: inline;">
+                 right: 20px; color: #e6e6e6; display: inline;">
     </div>
 </body>
 </html>

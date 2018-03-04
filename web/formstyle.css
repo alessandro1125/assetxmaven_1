@@ -84,7 +84,6 @@
     -moz-box-sizing: border-box;
     outline: none;
     display: block;
-	border-radius: 2px;
     width: 100%;
     padding: 7px;
     border: none;
@@ -93,7 +92,8 @@
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
-    color : #696969
+    color : #696969;
+    border-radius: 2px;
 }
 .form-style-8 textarea{
     resize:none;

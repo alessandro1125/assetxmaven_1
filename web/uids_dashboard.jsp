@@ -21,7 +21,6 @@
     <div id="toolbar" class="form-style-8" style="min-width: 1000px; max-width: 100%; width: 100%; margin-top: 0; height: 70px; padding: 10px; background: #ff4d4d;">
         <h1>Get Advertisment Devices Dashboard</h1>
 
-        <!-- TODO controllare la popsizione relative che non va -->
         <input type="button" value="Log Out" class="form-style-1" style=
                 "border-radius: 2px; width: 100px; position: absolute;
                  right: 20px; color: #e6e6e6; display: inline;">

@@ -141,9 +141,6 @@
                     }
 
                     authenticationParser(request, response, email, password, action);
-
-
-
                 break;
             }
 

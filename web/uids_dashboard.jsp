@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 </head>
 <body style="min-width: 1000px">
-    <div id="toolbar" class="form-style-8" style="min-width: 1000px; max-width: 100%; width: 100%; margin-top: 0; height: 70px; padding: 10px; background: #ff4d4d;">
+    <div id="toolbar" class="form-style-8-toolbar">
         <h1>Get Advertisment Devices Dashboard</h1>
 
         <input type="button" value="Log Out" class="form-style-1" style=

@@ -17,8 +17,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 </head>
-<body style="min-width: 1000px">
+<body style="position: absolute; min-width: 1000px">
     <div id="toolbar" class="form-style-8-toolbar">
+
         <h1 class="form-style-8">Get Advertisment Devices Dashboard</h1>
 
         <input type="button" value="Log Out" class="form-style-1" style=

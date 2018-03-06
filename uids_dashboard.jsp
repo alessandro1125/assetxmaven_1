@@ -17,17 +17,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 </head>
-<body style="position: absolute; min-width: 1000px">
-    <div id="toolbar" class="form-style-8-toolbar">
+<body style="position: absolute; min-width: 1000px; width: 100%">
+    <div id="toolbar" class="form-style-8" style="font-family: 'Open Sans Condensed', sans-serif;
+    min-width: 1000px;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 0;
+    height: 70px;
+    padding: 10px;
+    background: #ff4d4d;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0 0 15px rgba(0, 0, 0, 0.22);">
 
         <h1 class="form-style-8" style="
-        display: inline;
-        border-radius: 2px;
-        margin: auto;
-        font-size: 26px;
-        margin-left: 20px;
-        margin-top: 20px;
-        color: #e6e6e6;"
+
         >Get Advertisment Devices Dashboard</h1>
 
         <input type="button" value="Log Out" class="form-style-1" style=

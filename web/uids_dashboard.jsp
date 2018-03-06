@@ -19,7 +19,7 @@
 </head>
 <body style="min-width: 1000px">
     <div id="toolbar" class="form-style-8-toolbar">
-        <h1>Get Advertisment Devices Dashboard</h1>
+        <h1 class="form-style-8">Get Advertisment Devices Dashboard</h1>
 
         <input type="button" value="Log Out" class="form-style-1" style=
                 "border-radius: 2px; width: 100px; position: absolute;

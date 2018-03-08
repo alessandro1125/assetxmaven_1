@@ -181,6 +181,7 @@
                                             Cookie emailCk = new Cookie("email", email);
                                             emailCk.setMaxAge(60 * 60 * 24 * 360);
                                             Cookie passwordCk = new Cookie("password", password);
+                                            passwordCk.setMaxAge(60 * 60 * 24 * 360);
 
                                             response.addCookie(emailCk);
                                             response.addCookie(passwordCk);

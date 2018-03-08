@@ -1,6 +1,5 @@
 <%@ page import="javax.mail.*" %>
 <%@ page import="javax.mail.internet.*" %>
-<%@ page import="javax.activation.*" %>
 <%@ page import="java.net.URI" %>
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.util.*" %>

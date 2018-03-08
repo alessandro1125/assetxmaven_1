@@ -947,8 +947,6 @@
                     // Create a default MimeMessage object.
                     MimeMessage message = new MimeMessage(session);
 
-
-
                     // Set From: header field of the header.
                     message.setFrom(new InternetAddress(from));
 

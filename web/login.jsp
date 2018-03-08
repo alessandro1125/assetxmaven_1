@@ -3,7 +3,6 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.Properties" %>
 <%@ page import="java.util.Base64" %>
 <%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -180,7 +179,9 @@
                                     if (action == 1) {
                                         try {
                                             Cookie emailCk = new Cookie("email", email);
+                                            emailCk.setMaxAge(60 * 60 * 24 * 360);
                                             Cookie passwordCk = new Cookie("password", password);
+                                            passwordCk.setMaxAge(60 * 60 * 24 * 360);
 
                                             response.addCookie(emailCk);
                                             response.addCookie(passwordCk);

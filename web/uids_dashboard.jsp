@@ -5,7 +5,7 @@
   Time: 19:14
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
     <head>
         <%
@@ -32,9 +32,20 @@
 
             <h1>Get Advertisment Devices Dashboard</h1>
 
-            <input type="button" value="Log Out" class="form-style-1" style=
-                    "border-radius: 2px; width: 100px; position: absolute;
-                     right: 20px; color: #e6e6e6; display: inline;">
+            <input type="button" value="Log Out" class="form-style-1" onclick="logOut()" style=
+                "border-radius: 2px; width: 100px; position: absolute;
+                 right: 20px; color: #e6e6e6; display: inline;">
+
+            <script type="application/javascript">
+                function logOut() {
+                    //Cancello i cookie
+                    document.cookie = "email"+'=; Max-Age=-99999999;';
+                    //Cancello i cookie
+                    document.cookie = "password"+'=; Max-Age=-99999999;';
+                    // similar behavior as an HTTP redirect
+                    window.location.replace("login.jsp?action=0");
+                }
+            </script>
         </div>
     </body>
 </html>

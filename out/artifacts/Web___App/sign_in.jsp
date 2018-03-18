@@ -1,6 +1,5 @@
 <%@ page import="javax.mail.*" %>
 <%@ page import="javax.mail.internet.*" %>
-<%@ page import="javax.activation.*" %>
 <%@ page import="java.net.URI" %>
 <%@ page import="java.net.URISyntaxException" %>
 <%@ page import="java.util.*" %>
@@ -529,7 +528,7 @@
             </form>
             <input type="submit" value="Submit" id="check" onclick="check_password()">
 
-            <script>
+            <script type="application/javascript">
                 function check_password() {
                     if (document.getElementById("newpassword").value.length >= 8){
                         if(document.getElementById("newpassword").value.localeCompare(document.getElementById
@@ -554,7 +553,6 @@
                         document.getElementById("newpasswordconf").value = "";
                     }
                 }
-
 
             </script>
         </div>
@@ -946,8 +944,6 @@
                 try {
                     // Create a default MimeMessage object.
                     MimeMessage message = new MimeMessage(session);
-
-
 
                     // Set From: header field of the header.
                     message.setFrom(new InternetAddress(from));

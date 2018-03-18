@@ -528,7 +528,7 @@
             </form>
             <input type="submit" value="Submit" id="check" onclick="check_password()">
 
-            <script>
+            <script type="application/javascript">
                 function check_password() {
                     if (document.getElementById("newpassword").value.length >= 8){
                         if(document.getElementById("newpassword").value.localeCompare(document.getElementById
@@ -553,7 +553,6 @@
                         document.getElementById("newpasswordconf").value = "";
                     }
                 }
-
 
             </script>
         </div>

@@ -14,7 +14,6 @@
         <title>UID dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="formstyle.css?<%= time %>" rel="stylesheet" type="text/css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
     </head>
     <body style="position: absolute; min-width: 1000px; width: 100%">
@@ -32,9 +31,19 @@
 
             <h1>Get Advertisment Devices Dashboard</h1>
 
-            <input type="button" value="Log Out" class="form-style-1" style=
-                    "border-radius: 2px; width: 100px; position: absolute;
-                     right: 20px; color: #e6e6e6; display: inline;">
+            <input type="button" value="Log Out" class="form-style-1" onclick="logOut()" style=
+                "border-radius: 2px; width: 100px; position: absolute;
+                 right: 20px; color: #e6e6e6; display: inline;">
+
+            <script type="application/javascript">
+                function logOut() {
+                    //Cancello i cookie
+                    document.cookie = "email"+'=; Max-Age=-99999999;';
+                    document.cookie = "password"+'=; Max-Age=-99999999;';
+                    //Log Out
+                    window.location.replace("login.jsp?action=0");
+                }
+            </script>
         </div>
     </body>
 </html>

@@ -19,7 +19,8 @@
 
 
     <packaging>jar</packaging>
-    <name>embeddedTomcatSample Maven Webapp</name>
+    <!--<name>embeddedTomcatSample Maven Webapp</name>-->
+    <name>assetx_maven1 Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
         <tomcat.version>8.5.23</tomcat.version>
@@ -95,11 +96,11 @@
             <artifactId>catalina-ha</artifactId>
             <version>6.0.16</version>
         </dependency>
-
-
     </dependencies>
+
+
     <build>
-        <finalName>embeddedTomcatSample</finalName>
+        <finalName>assetx_maven1</finalName>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

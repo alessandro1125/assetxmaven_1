@@ -190,7 +190,7 @@
                                         }
                                     }
 
-                                    //Redirect nella area personale
+                                    //Redirect nella area personale (redirect senza URL)
                                     RequestDispatcher dispatcher;
                                     dispatcher = request.getRequestDispatcher("uids_dashboard.jsp?email=" + email +
                                             "&password=" + password);
